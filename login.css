@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +27,7 @@ input[type="password"] {
 }
 input[type="submit"] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #32a895;
     color: white;
     padding: 18px 20px;
     margin: 12px 0;
@@ -34,9 +36,13 @@ input[type="submit"] {
     cursor: pointer;
 }
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #2c9181;
 }
 .signup-section {
+    text-align: center;
+    margin-top: 20px;
+}
+.login-section {
     text-align: center;
     margin-top: 20px;
 }
