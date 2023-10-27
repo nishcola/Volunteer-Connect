@@ -1,9 +1,3 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -12,7 +6,6 @@ body {
     height: 100vh;
     margin: 0;
 }
-
 form {
     width: 300px;
     padding: 40px;
@@ -20,7 +13,6 @@ form {
     border-radius: 5px;
     background-color: #f9f9f9;
 }
-
 input[type="text"],
 input[type="password"] {
     width: 100%;
@@ -31,7 +23,6 @@ input[type="password"] {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
 input[type="submit"] {
     width: 100%;
     background-color: #4CAF50;
@@ -42,7 +33,10 @@ input[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
 }
-
 input[type="submit"]:hover {
     background-color: #45a049;
+}
+.signup-section {
+    text-align: center;
+    margin-top: 20px;
 }
