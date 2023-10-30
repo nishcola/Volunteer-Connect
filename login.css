@@ -46,3 +46,6 @@ input[type="submit"]:hover {
     text-align: center;
     margin-top: 20px;
 }
+#passwordInfo {
+    font-size: 2px;
+}
