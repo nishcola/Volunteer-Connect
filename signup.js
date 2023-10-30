@@ -165,8 +165,7 @@ function checkForNumbers(password){
 }
 
 function checkForSpecialCharacters(password){
-    const specialCharacters = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '{', '}', '|', ':', ';', '"', "'", 
-    '<', '>', ',', '.', '?', '/'];
+    const specialCharacters = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '{', '}', '|', ':', ';', '"', "'", ',', '.', '?', '/'];
     
     var specialCharacterFound = false;
     var i = 0;
