@@ -47,5 +47,6 @@ input[type="submit"]:hover {
     margin-top: 20px;
 }
 #passwordInfo {
-    font-size: 2px;
+    font-size: 9px;
+    color: rgb(87, 86, 86);
 }

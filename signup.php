@@ -18,7 +18,7 @@
         <p id="passwordInfo">Min. 8 characters; at least 1 uppercase, lowercase, number, & special character</p> 
         <input type="submit" id="signupButton" value="Sign Up">
         <div class="login-section">
-            <p>Already have an account? <a href="index.html">Login here</a>.</p>
+            <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </div>
     </form>
 </body>
