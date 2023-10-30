@@ -1,2 +1,2 @@
 # Disability Match
-TSA Software Development
+TSA Software Development. Matches people in need with respective volunteers. 
