@@ -82,6 +82,6 @@ body {
 .landing-content {
     display: grid;
     min-height: 100vh;
-    align-items: center;
+    place-items: center;
     justify-content: center;
 }
