@@ -16,9 +16,9 @@
         <form method="post" action="SignupComplete.php">
         Username: <input type="text" name="name" />
         <br />
-        Password: <input type="password" name="email" />
+        Password: <input type="password" id = "password" name="email" />
         <br />
-        <input type="submit" />
+        <input type="submit" id = "signupButton"/>
     </form>
         </div>
     </div>
