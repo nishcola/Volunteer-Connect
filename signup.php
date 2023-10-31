@@ -13,18 +13,13 @@
 <body>
     <div class="background-container">
         <div class="bgc2">
-            <form action="/signup" method="post">
-                <h2>Sign Up</h2>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Choose a username..." required>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Choose a password..." required>
-                <p id="passwordInfo">Min. 8 characters; at least 1 uppercase, lowercase, number, & special character</p>
-                <input type="submit" id="signupButton" value="Sign Up">
-                <div class="login-section">
-                    <p>Already have an account? <a href="login.php">Login here</a>.</p>
-                </div>
-            </form>
+        <form method="post" action="SignupComplete.php">
+        Username: <input type="text" name="name" />
+        <br />
+        Password: <input type="password" name="email" />
+        <br />
+        <input type="submit" />
+    </form>
         </div>
     </div>
 </body>
