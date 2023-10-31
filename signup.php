@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,24 @@
     <script defer src="signup.js"></script>
     <title>Sign Up - Disability Match</title>
 </head>
+
 <body>
-    <form action="/signup" method="post">
-        <h2>Sign Up</h2>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Choose a username..." required>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Choose a password..." required>
-        <p id="passwordInfo">Min. 8 characters; at least 1 uppercase, lowercase, number, & special character</p> 
-        <input type="submit" id="signupButton" value="Sign Up">
-        <div class="login-section">
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
+    <div class="background-container">
+        <div class="bgc2">
+            <form action="/signup" method="post">
+                <h2>Sign Up</h2>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Choose a username..." required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Choose a password..." required>
+                <p id="passwordInfo">Min. 8 characters; at least 1 uppercase, lowercase, number, & special character</p>
+                <input type="submit" id="signupButton" value="Sign Up">
+                <div class="login-section">
+                    <p>Already have an account? <a href="login.php">Login here</a>.</p>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </body>
+
 </html>

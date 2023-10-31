@@ -7,13 +7,29 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: white;
+}
+.background-container {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('images/pexels-huỳnh-đạt-2177482.jpg');
+    background-size: cover;
+}
+.bgc2 {
+    background-color: rgba(0, 0, 0, 0.5);
+    min-height: 100vh;
+    width: 100%;
 }
 form {
     width: 300px;
     padding: 40px;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #24292e;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 input[type="text"],
 input[type="password"] {
@@ -27,7 +43,7 @@ input[type="password"] {
 }
 input[type="submit"] {
     width: 100%;
-    background-color: #32a895;
+    background-color: #28a745;
     color: white;
     padding: 18px 20px;
     margin: 12px 0;
@@ -48,5 +64,5 @@ input[type="submit"]:hover {
 }
 #passwordInfo {
     font-size: 9px;
-    color: rgb(87, 86, 86);
+    color: rgb(165, 165, 165);
 }
