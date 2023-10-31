@@ -29,6 +29,14 @@
                 <a href="#company-info" class="button">Get Started</a>
             </div>
         </div>
+        <div class="landing-content">
+            <h1>A Little More About Us</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, labore dolor libero quis laboriosam nobis illo repellendus laudantium id nihil culpa placeat cupiditate voluptatem expedita officiis itaque corporis sit adipisci!</p>
+        </div>
+        <div class="landing-content">
+            <h1>Why Choose Us?</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta obcaecati accusantium inventore deleniti ex! Sequi, hic totam! Ipsum nihil tempora aperiam beatae reprehenderit delectus natus cumque atque, id a eum.</p>
+        </div>
         <div class="footer">
             <p>We prioritize customer experience. Email us at: lorem@ipsum.dolorsitamet</p>
         </div>
