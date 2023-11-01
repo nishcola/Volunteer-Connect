@@ -32,7 +32,7 @@
                 <label for="zipCode">Zip Code:</label><br />
                 <input id="zipCode" type="text" autocomplete="on" placeholder="Type your zip code..."/>
             </div>
-            <button type="button" id="signUpCompleteButton">Submit</button>
+            <input type="submit" value="Submit">
         </form>
     </div>
 </body>

@@ -41,7 +41,7 @@ input[type="password"] {
     border-radius: 4px;
     box-sizing: border-box;
 }
-button {
+button, input[type="submit"] {
     width: 100%;
     background-color: #28a745;
     color: white;
@@ -51,7 +51,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
-button:hover {
+button, input[type="submit"]:hover {
     background-color: #258d3d;
 }
 .signup-section {
