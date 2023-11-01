@@ -2,7 +2,6 @@ const signupButton = document.getElementById("signupButton");
 signupButton.addEventListener("click", function(){
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    document.getElementById("password").value = "";
 
     if(username == "" || password == "")
     {
@@ -34,10 +33,10 @@ signupButton.addEventListener("click", function(){
         }
         return;
     }
-
+    else {
     console.log("Yay!");
-    window.location.replace("SignupComplete.php");
-
+    //window.assign.href = "SignupComplete.php";
+    }
     //Actually do stuff!
 });
 

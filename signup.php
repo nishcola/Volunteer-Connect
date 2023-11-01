@@ -13,12 +13,12 @@
 <body>
     <div class="background-container">
         <div class="bgc2">
-        <form method="post">
+    <form method="post" action = "SignupComplete.php">
         Username: <input id="username" type="text" name="name" autocomplete="on"/>
         <br />
         Password: <input id="password" type="password" name="email" autocomplete="on"/>
         <br />
-        <input id="signupButton" type="submit" autocomplete="on"/>
+        <input id="signupButton" type="submit"/>
     </form>
         </div>
     </div>
