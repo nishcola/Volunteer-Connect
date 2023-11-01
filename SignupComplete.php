@@ -20,21 +20,19 @@
                 <input id="helperButton" type="radio" name="account_type" value="Helper"/>
                 <label for="helperButton">Helper</label>
                 <h5>I want to help others!</h5>
-                <br />
                 <input id="seekerButton" type="radio" name="account_type" value="Seeker"/>
                 <label for="seekerButton">Seeker</label>
                 <h5>I am seeking volunteers to help me!</h5>
-                <br />
                 <h6>Note: Your account type is permanent, so make sure you select the correct one!</h6>
             </div>
             <div>
-                <p>Basic Information:</p>
+                <p style="text-decoration: underline;">Basic Information:</p>
                 <label for="realName">Name:</label><br />
                 <input id="realName" type="text" autocomplete="on" placeholder="Type your name..."/>
                 <label for="zipCode">Zip Code:</label><br />
                 <input id="zipCode" type="text" autocomplete="on" placeholder="Type your zip code..."/>
             </div>
-            <input type="submit" value="Submit">
+            <button type="button" id="signUpCompleteButton">Submit</button>
         </form>
     </div>
 </body>
