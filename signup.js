@@ -1,23 +1,25 @@
-if(document.getElementById("signupButton") != null){
-    const signupButton = document.getElementById("signupButton");
+var GLOBAL_USERNAME_VAR = "";
 
+if(document.getElementById("signupButton") != null){
+    var signupButton = document.getElementById("signupButton");
     signupButton.addEventListener("click", function(){
         console.log("Sign up button clicked");
-        
+
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
         document.getElementById("password").value = "";
-    
+
         if(username == "" || password == "")
         {
+            console.log("returned");
             return;
         }
-    
+
         var checkResults = checkParameters(username, password);
         if(!checkResults[0] || !checkResults[1] || !checkResults[2] || !checkResults[3] || !checkResults[4] || !checkResults[5] || !checkResults[6] || !checkResults[7]){
             //Provide an error statement detailing the missing parts, using the array returned by the function. 
             //Array return order: username taken, username length, password length, lowercase letter, uppercase letter, number, special char, forbidden character
-    
+
             //temp debug stuff:
             if(!checkResults[0]){
                 console.log("username taken");
@@ -38,16 +40,15 @@ if(document.getElementById("signupButton") != null){
             }
             return;
         }
-    
-        console.log("Yay!");
-        window.location.replace("SignupComplete.php");
-        document.getElementById("scUsername").innerText = username;
-        document.getElementById("scPassword").innerText = password;
-    
-    
-        //Actually do stuff!
+
+    console.log("Yay!");
+    GLOBAL_USERNAME_VAR = username;
+    window.location.replace("SignupComplete.php");
     });
 }
+
+
+
 
 
 

@@ -10,6 +10,4 @@
 <body>
     Welcome: 
     <p id="scUsername"></p><br> 
-    Password:  
-    <p id="scPassword"></p>
 </body>
