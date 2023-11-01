@@ -14,14 +14,17 @@
     <div class="background-container">
         <div class="bgc2">
             <form method="post">
-                Username: <input id="username" type="text" name="name" autocomplete="on"/>
+                <h2>Sign Up</h2>
+                Username: <input id="username" type="text" name="name" autocomplete="on" placeholder="Choose a username..."/>
                 <br />
-                Password: <input id="password" type="password" name="email" autocomplete="on"/>
+                Password: <input id="password" type="password" name="email" autocomplete="on" placeholder="Choose a password..."/>
                 <br />
-                <!-- <input id="signupButton" type="submit" autocomplete="on"/> -->
-                <button type="button" id="signupButton">Submit</button>
+                <!-- <input type="submit" id="signupButton" value="Sign Up"> -->
+                <button type="button" id="signupButton">Sign Up</button>
+                <div class="login-section">
+                    <p>Already have an account?<br><a href="login.php">Log in here</a>.</p>
+                </div>
             </form>
-            
         </div>
     </div>
 </body>

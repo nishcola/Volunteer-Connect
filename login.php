@@ -19,7 +19,7 @@
                 <input type="text" id="username" name="username" placeholder="Your username.." required>
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Your password.." required>
-                <input type="submit" value="Login">
+                <button type="button" id="loginButton">Log In</button>
                 <div class="signup-section">
                     <p>Don't have an account? <a href="signup.php">Sign up here</a>.</p>
                 </div>
