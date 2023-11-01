@@ -16,9 +16,15 @@
     <form method="post" action = "SignupComplete.php">
         Username: <input id="username" type="text" name="name" autocomplete="on"/>
         <br />
+<<<<<<< HEAD
         Password: <input id="password" type="password" name="email" autocomplete="on"/>
         <br />
         <input id="signupButton" type="submit"/>
+=======
+        Password: <input type="password" name="email" />
+        <br />
+        <input type="submit" />
+>>>>>>> parent of 044634c (Update signup.php)
     </form>
         </div>
     </div>
