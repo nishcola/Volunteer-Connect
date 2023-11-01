@@ -1,44 +1,55 @@
-const signupButton = document.getElementById("signupButton");
-signupButton.addEventListener("click", function(){
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
+if(document.getElementById("signupButton") != null){
+    const signupButton = document.getElementById("signupButton");
 
-    if(username == "" || password == "")
-    {
-        return;
-    }
-
-    var checkResults = checkParameters(username, password);
-    if(!checkResults[0] || !checkResults[1] || !checkResults[2] || !checkResults[3] || !checkResults[4] || !checkResults[5] || !checkResults[6] || !checkResults[7]){
-        //Provide an error statement detailing the missing parts, using the array returned by the function. 
-        //Array return order: username taken, username length, password length, lowercase letter, uppercase letter, number, special char, forbidden character
-
-        //temp debug stuff:
-        if(!checkResults[0]){
-            console.log("username taken");
-        }else if(!checkResults[1]){
-            console.log("username too short");
-        }else if(!checkResults[2]){
-            console.log("password too short");
-        }else if(!checkResults[3]){
-            console.log("password does not contain lowercase letter");
-        }else if(!checkResults[4]){
-            console.log("password does not contain uppercase letter");
-        }else if(!checkResults[5]){
-            console.log("password does not contain number");
-        }else if(!checkResults[6]){
-            console.log("password does not contain special char");
-        }else{
-            console.log("username or password contains a forbidden char");
+    signupButton.addEventListener("click", function(){
+        console.log("Sign up button clicked");
+        
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        document.getElementById("password").value = "";
+    
+        if(username == "" || password == "")
+        {
+            return;
         }
-        return;
-    }
-    else {
-    console.log("Yay!");
-    //window.assign.href = "SignupComplete.php";
-    }
-    //Actually do stuff!
-});
+    
+        var checkResults = checkParameters(username, password);
+        if(!checkResults[0] || !checkResults[1] || !checkResults[2] || !checkResults[3] || !checkResults[4] || !checkResults[5] || !checkResults[6] || !checkResults[7]){
+            //Provide an error statement detailing the missing parts, using the array returned by the function. 
+            //Array return order: username taken, username length, password length, lowercase letter, uppercase letter, number, special char, forbidden character
+    
+            //temp debug stuff:
+            if(!checkResults[0]){
+                console.log("username taken");
+            }else if(!checkResults[1]){
+                console.log("username too short");
+            }else if(!checkResults[2]){
+                console.log("password too short");
+            }else if(!checkResults[3]){
+                console.log("password does not contain lowercase letter");
+            }else if(!checkResults[4]){
+                console.log("password does not contain uppercase letter");
+            }else if(!checkResults[5]){
+                console.log("password does not contain number");
+            }else if(!checkResults[6]){
+                console.log("password does not contain special char");
+            }else{
+                console.log("username or password contains a forbidden char");
+            }
+            return;
+        }
+    
+        console.log("Yay!");
+        window.location.replace("SignupComplete.php");
+        document.getElementById("scUsername").innerText = username;
+        document.getElementById("scPassword").innerText = password;
+    
+    
+        //Actually do stuff!
+    });
+}
+
+
 
 function checkParameters(username, password){
     var results = [];
