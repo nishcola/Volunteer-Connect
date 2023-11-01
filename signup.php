@@ -15,9 +15,9 @@
         <div class="bgc2">
             <form method="post">
                 <h2>Sign Up</h2>
-                Username: <input id="username" type="text" name="name" autocomplete="on" placeholder="Choose a username..."/>
+                Username: <input id="username" type="text" autocomplete="on" placeholder="Choose a username..."/>
                 <br />
-                Password: <input id="password" type="password" name="email" autocomplete="on" placeholder="Choose a password..."/>
+                Password: <input id="password" type="password" autocomplete="on" placeholder="Choose a password..."/>
                 <br />
                 <!-- <input type="submit" id="signupButton" value="Sign Up"> -->
                 <button type="button" id="signupButton">Sign Up</button>
