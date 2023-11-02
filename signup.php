@@ -14,6 +14,9 @@
     <div class="background-container">
         <div class="bgc2">
             <form method="post">
+                <div class="error-box" id="errorBox">
+                    <p id="errorText"></p>
+                </div>
                 <h2>Sign Up</h2>
                 Username: <input id="username" type="text" autocomplete="on" placeholder="Choose a username..."/>
                 <br />

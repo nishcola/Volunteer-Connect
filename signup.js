@@ -1,3 +1,4 @@
+errorBox.style.display = "none";
 var signupButton = document.getElementById("signupButton");
 signupButton.addEventListener("click", function(){
     console.log("Sign up button clicked");
@@ -13,27 +14,41 @@ signupButton.addEventListener("click", function(){
     }
 
     var checkResults = checkParameters(username, password);
-    if(!checkResults[0] || !checkResults[1] || !checkResults[2] || !checkResults[3] || !checkResults[4] || !checkResults[5] || !checkResults[6] || !checkResults[7]){
+    if(!checkResults[0] || !checkResults[1] || !checkResults[2] || !checkResults[3] || !checkResults[4] || !checkResults[5] || !checkResults[6] || !checkResults[7] || !checkResults[8] || !checkResults[9]){
         //Provide an error statement detailing the missing parts, using the array returned by the function. 
-        //Array return order: username taken, username length, password length, lowercase letter, uppercase letter, number, special char, forbidden character
+        //Array return order: username taken, username length, password length, lowercase letter, uppercase letter, number, special char, forbidden character, username too long, password too long
 
         //temp debug stuff:
         if(!checkResults[0]){
             console.log("username taken");
+            displayErrorMsg("username taken");
         }else if(!checkResults[1]){
             console.log("username too short");
+            displayErrorMsg("username too short");
         }else if(!checkResults[2]){
             console.log("password too short");
+            displayErrorMsg("password too short");
         }else if(!checkResults[3]){
             console.log("password does not contain lowercase letter");
+            displayErrorMsg("password does not contain lowercase letter");
         }else if(!checkResults[4]){
             console.log("password does not contain uppercase letter");
+            displayErrorMsg("password does not contain uppercase letter");
         }else if(!checkResults[5]){
             console.log("password does not contain number");
+            displayErrorMsg("password does not contain number");
         }else if(!checkResults[6]){
             console.log("password does not contain special char");
-        }else{
+            displayErrorMsg("password does not contain special char");
+        }else if(!checkResults[7]){
             console.log("username or password contains a forbidden char");
+            displayErrorMsg("username or password contains a forbidden char");
+        }else if(!checkResults[8]){
+            console.log("username too long");
+            displayErrorMsg("username too long");
+        }else{
+            console.log("password too long");
+            displayErrorMsg("password too long");
         }
         return;
     }
@@ -89,6 +104,18 @@ function checkParameters(username, password){
     }
 
     if(!checkForForbiddenCharacters(username) && !checkForForbiddenCharacters(password)){
+        results.push(true);
+    }else{
+        results.push(false);
+    }
+    
+    if(username.length <= 16){
+        results.push(true);
+    }else{
+        results.push(false);
+    }
+
+    if(password.length <= 16){
         results.push(true);
     }else{
         results.push(false);
@@ -173,7 +200,7 @@ function checkForNumbers(password){
 }
 
 function checkForSpecialCharacters(password){
-    const specialCharacters = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '{', '}', '|', ':', ';', '"', "'", ',', '.', '?', '\', '/'];
+    const specialCharacters = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '{', '}', '|', ':', ';', '"', "'", ',', '.', '?', '/'];
     
     var specialCharacterFound = false;
     var i = 0;
@@ -220,4 +247,17 @@ function checkForForbiddenCharacters(text){
     }else{
         return false;
     }
+}
+
+function displayErrorMsg(msg){
+    var errorBox = document.getElementById("errorBox");
+    var errorText = document.getElementById("errorText");
+
+    if (errorBox.style.display === "none") {
+        errorBox.style.display = "block";
+    } else {
+        errorBox.style.display = "none";
+    }
+
+    errorText.innerText = "Error: " + msg;
 }
