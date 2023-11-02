@@ -15,7 +15,7 @@
         <div class="bgc2">
             <form method="post">
                 <div class="error-box" id="errorBox">
-                    <p id="errorText"></p>
+                    <p id="errorText" style="width: 300px; height: 20px; border: 1px solid rgb(148, 2, 2); background-color: rgb(218, 140, 140);"></p>
                 </div>
                 <h2>Sign Up</h2>
                 Username: <input id="username" type="text" autocomplete="on" placeholder="Choose a username..."/>
