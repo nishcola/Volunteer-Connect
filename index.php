@@ -25,6 +25,7 @@
                 <p><a href="signup.php" style="text-decoration: underline;" id="signupLink">Sign Up</a><a href="login.php" style="text-decoration: underline;">Login</a></p>
             </div>
         </div>
+        <div id="darkeningDiv" class="hiddenDiv"></div>
         <div style="background-image: url(images/pexels-rdne-stock-project-6647037.jpg);background-size:cover;">
             <div class="landing-header">
                 <h1>Disability Match</h1>

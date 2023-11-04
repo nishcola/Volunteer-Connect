@@ -17,10 +17,10 @@
             </div>
             <div>
                 <p>Account Type:</p>
-                <input id="helperButton" type="radio" name="account_type" value="Helper"/>
+                <input id="helperButton" type="radio" name="accountType" value="Helper"/>
                 <label for="helperButton">Helper</label>
                 <h5>I want to help others!</h5>
-                <input id="seekerButton" type="radio" name="account_type" value="Seeker"/>
+                <input id="seekerButton" type="radio" name="accountType" value="Seeker"/>
                 <label for="seekerButton">Seeker</label>
                 <h5>I am seeking volunteers to help me!</h5>
                 <h6>Note: Your account type is permanent, so make sure you select the correct one!</h6>
@@ -28,7 +28,7 @@
             <div>
                 <p style="text-decoration: underline;">Basic Information:</p>
                 <label for="firstName">First Name:</label><br />
-                <input id="firstName" type="text" name = "first_name" autocomplete="on" placeholder="Type your first name..."/>
+                <input id="firstName" type="text" name="firstName" autocomplete="on" placeholder="Type your first name..."/>
                 <label for="lastName">Last Name:</label><br />
                 <input name = "lastName" id="lastName" type="text" autocomplete="on" placeholder="Type your last name..."/>
                 <label for="zipCode">Zip Code:</label><br />

@@ -29,22 +29,27 @@ window.onload = () => {
   if (shouldShowPopup(storageType)) {
     setTimeout(() => {
       consentPopup.classList.remove("hidden_cookie");
-    }, 2000);
+      darkeningDiv.classList.remove("hiddenDiv");
+    }, 500);
   }
 };
 
 var cookies_enabled = storageType.getItem(consentPropertyName);
 const signupLink = document.getElementById("signupLink");
 const signupButton = document.getElementById("signupButton");
+const darkeningDiv = document.getElementById("darkeningDiv");
 
 checkCookies();
 
 function checkCookies() {
   if (cookies_enabled) {
-    signupLink.classList.remove("disabled-link");
-    signupButton.disabled = false;
+    //signupLink.classList.remove("disabled-link");
+    //signupButton.classList.remove("disabled-link");
+    //signupLink.classList.add("enabled-link");
+    //signupButton.classList.add("enabled-link");
   } else {
-    signupLink.classList.add("disabled-link");
-    signupButton.disabled = true;
+    //signupLink.classList.add("disabled-link");
+    //signupButton.classList.add("disabled-link");
+    darkeningDiv.classList.add("hiddenDiv");
   }
 }

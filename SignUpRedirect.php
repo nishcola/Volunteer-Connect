@@ -6,9 +6,9 @@
     <title>Signing In...</title>
 </head>
 <body>
-    type <?php echo $_POST["account_type"]?><br>
-    name <?php echo $_POST["firstName"]; ?><br>
-    name1 <?php echo $_POST["lastName"]; ?>
-    Zip <?php echo $_POST["zipCode"]; ?>
+    type: <?php echo $_POST["accountType"]; ?><br>
+    first name: <?php echo $_POST["firstName"]; ?><br>
+    last name: <?php echo $_POST["lastName"]; ?><br>
+    zip code: <?php echo $_POST["zipCode"]; ?>
 </body>
 </html>
