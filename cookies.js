@@ -33,3 +33,5 @@ window.onload = () => {
   }
 
 };
+
+var cookies_enabled = storageType.getItem(consentPropertyName);

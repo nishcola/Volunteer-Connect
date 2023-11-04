@@ -210,3 +210,7 @@ body {
     opacity: 0;
   }
 }
+
+.disabled-link {
+  pointer-events: none;
+}
