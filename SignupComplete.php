@@ -28,7 +28,7 @@
             <div>
                 <p style="text-decoration: underline;">Basic Information:</p>
                 <label for="firstName">First Name:</label><br />
-                <input name = "first_name" id="firstName" type="text" autocomplete="on" placeholder="Type your first name..."/>
+                <input id="firstName" type="text" name = "first_name" autocomplete="on" placeholder="Type your first name..."/>
                 <label for="lastName">Last Name:</label><br />
                 <input name = "lastName" id="lastName" type="text" autocomplete="on" placeholder="Type your last name..."/>
                 <label for="zipCode">Zip Code:</label><br />

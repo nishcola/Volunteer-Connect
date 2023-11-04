@@ -50,13 +50,11 @@ signupButton.addEventListener("click", function(){
             console.log("password too long");
             displayErrorMsg("password too long");
         }
-        return;
+    }else{
+        document.cookie = `username = ${username}; path=/`;
+        document.cookie = `password = ${password}; path=/`;
+        window.location.replace("SignupComplete.php");
     }
-    document.cookie = `username = ${username}; path=/`;
-    document.cookie = `password = ${password}; path=/`;
-    window.location.replace("SignupComplete.php");
-
-
 });
 
 

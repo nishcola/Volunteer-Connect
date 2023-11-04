@@ -6,7 +6,7 @@
     <title>Signing In...</title>
 </head>
 <body>
-    type <?php echo $_POST["account_type"] . $_POST["first_name"]?><br>
+    type <?php echo $_POST["account_type"]?><br>
     name <?php echo $_POST["firstName"]; ?><br>
     name1 <?php echo $_POST["lastName"]; ?>
     Zip <?php echo $_POST["zipCode"]; ?>
