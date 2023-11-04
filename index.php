@@ -16,7 +16,7 @@
         <div class="navbar">
             <div class="links">
                 <a href="#">Home</a>
-                <a href="#">About</a>
+                <a href="#about-heading">About</a>
                 <a href="#">Services</a>
                 <a href="#">Contact</a>
             </div>
