@@ -52,8 +52,10 @@ signupButton.addEventListener("click", function(){
         }
         return;
     }
-
+    document.cookie = `username = ${username}; path=/`;
+    document.cookie = `password = ${password}; path=/`;
     window.location.replace("SignupComplete.php");
+
 
 });
 

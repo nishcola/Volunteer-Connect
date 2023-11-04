@@ -10,9 +10,9 @@
 </head>
 <body>
     <div class="background-container">
-        <form method="post">
+        <form method="post" action = "SignUpRedirect.php">
             <div>
-                <h3 id="scUsername">Welcome, [Username]</h3>
+                <h3 id="scUsername">Welcome, <em><?php $username = 'username'; echo $_COOKIE[$username];?></em></h3>
                 <p>Before you're finished setting up your account, please fill out this info!</p>
             </div>
             <div>
@@ -27,12 +27,15 @@
             </div>
             <div>
                 <p style="text-decoration: underline;">Basic Information:</p>
-                <label for="realName">Name:</label><br />
-                <input id="realName" type="text" autocomplete="on" placeholder="Type your name..."/>
+                <label for="firstName">First Name:</label><br />
+                <input name = "first_name" id="firstName" type="text" autocomplete="on" placeholder="Type your first name..."/>
+                <label for="lastName">Last Name:</label><br />
+                <input name = "lastName" id="lastName" type="text" autocomplete="on" placeholder="Type your last name..."/>
                 <label for="zipCode">Zip Code:</label><br />
-                <input id="zipCode" type="text" autocomplete="on" placeholder="Type your zip code..."/>
+                <input name = "zipCode" id="zipCode" type="text" autocomplete="on" placeholder="Type your zip code..."/>
             </div>
             <input type="submit" value="Submit">
         </form>
+        
     </div>
 </body>
