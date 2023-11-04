@@ -8,6 +8,7 @@
     <link rel="icon"
         href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Wheelchair_symbol.svg/898px-Wheelchair_symbol.svg.png">
     <script defer src="app.js"></script>
+    <script defer src="cookies.js"></script>
     <title>Disability Match - Home</title>
 </head>
 
@@ -29,6 +30,9 @@
                 <h1>Disability Match</h1>
                 <p>We believe in connecting volunteers with people who require aid.</p>
                 <a href="signup.php" class="button">Get Started</a>
+                <div id="consentPopup" class="hidden_cookie">
+                    <p>By using this site, you agree our use of cookies to store necessary information. Please <a id="acceptCookies" href="#">accept</a> before using our site.</p>
+                </div>
             </div>
         </div>
         <div style="background-image: url('images/pexels-rdne-stock-project-6646952.jpg');background-size: cover;">

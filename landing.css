@@ -194,3 +194,19 @@ body {
 .services-flex-container p {
   padding-bottom: 3%;
 }
+
+#consentPopup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  opacity: 1;
+  background-color: white;
+  color: black;
+  z-index: 5;
+
+  &.hidden_cookie {
+    opacity: 0;
+  }
+}
