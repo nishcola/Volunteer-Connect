@@ -62,6 +62,20 @@
                 </div>
             </div>
         </div>
+        <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "disabilitymatch";
+
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        echo "Connected successfully";
+        ?>
         <div class="footer" id="footer">
             <p>We prioritize customer experience. Email us with questions, doubts, or feedback, at: lorem@ipsum.dolorsitamet</p>
         </div>
