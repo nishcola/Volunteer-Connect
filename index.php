@@ -21,14 +21,14 @@
                 <a href="#">Contact</a>
             </div>
             <div class="greeting">
-                <p><a href="signup.php" style="text-decoration: underline;">Sign Up</a><a href="#" style="text-decoration: underline;">Log Out</a></p>
+                <p><a href="signup.php" style="text-decoration: underline;">Sign Up</a><a href="login.php" style="text-decoration: underline;">Login</a></p>
             </div>
         </div>
         <div style="background-image: url(images/pexels-rdne-stock-project-6647037.jpg);background-size:cover;">
             <div class="landing-header">
                 <h1>Disability Match</h1>
                 <p>We believe in connecting volunteers with people who require aid.</p>
-                <a href="#about-heading" class="button">Get Started</a>
+                <a href="signup.php" class="button">Get Started</a>
             </div>
         </div>
         <div style="background-image: url('images/pexels-rdne-stock-project-6646952.jpg');background-size: cover;">
