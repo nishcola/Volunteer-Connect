@@ -18,46 +18,6 @@ body {
   transform: translateX(-100%);
 }
 
-#delay1 {
-  transition-delay: 100ms;
-}
-
-#delay2 {
-  transition-delay: 200ms;
-}
-
-#delay3 {
-  transition-delay: 300ms;
-}
-
-#delay4 {
-  transition-delay: 400ms;
-}
-
-#delay5 {
-  transition-delay: 500ms;
-}
-
-#delay1pt2 {
-  transition-delay: 100ms;
-}
-
-#delay2pt2 {
-  transition-delay: 200ms;
-}
-
-#delay3pt2 {
-  transition-delay: 300ms;
-}
-
-#delay4pt2 {
-  transition-delay: 400ms;
-}
-
-#delay5pt2 {
-  transition-delay: 500ms;
-}
-
 .show {
   opacity: 1;
   filter: blur(0);
@@ -105,6 +65,13 @@ body {
 
 .navbar a:hover {
   text-decoration: underline;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .landing-header {
@@ -156,7 +123,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 0;
   text-align: center;
   color: white;
 }
@@ -171,12 +138,59 @@ body {
 .homepage-button {
     width: 50%;
     height: 50px;
-    background-color: rgba(0, 0, 0, 0);
-    border: 1px solid white;
+    background-color: rgb(53, 211, 90);
+    border: 0px;
     color: white;
+    border-radius: 2px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .homepage-button:hover {
-    border: 1px solid rgb(180, 180, 180);
-    color: 1px solid rgb(180, 180, 180);
+    border: 2px solid rgb(30, 105, 47);
+}
+
+.services-flex-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding: 5% 2%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.services-div-1 {
+  background-color: rgba(40, 167, 70, 0.9);
+  padding: 8% 4%;
+  width: 20%;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  text-align: center;
+  color: white;
+}
+
+.services-div-2 {
+  background-color: rgba(40, 167, 70, 0.9);
+  padding: 8% 4%;
+  width: 20%;
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  text-align: center;
+  color: white;
+}
+
+.line {
+  background-color: white;
+  width: 4px;
+  height: 100px;
+}
+
+.services-flex-container p {
+  padding-bottom: 3%;
 }
