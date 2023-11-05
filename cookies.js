@@ -1,5 +1,5 @@
 if(getCookie("username") != ""){
-  window.location.replace('AccountDashboard.php');
+  window.location.replace('AccountDashboardRedirect.php');
 }
 
 const cookieStorage = {

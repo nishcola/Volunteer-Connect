@@ -28,12 +28,14 @@
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result);
     $associatedPassword = $row[2];
+    $UAccountType = $row[3];
     mysqli_close($conn); 
 
     if($associatedPassword == $UPassword){
         setcookie("username", "$Uusername");
         setcookie("password", "$UPassword");
-        echo "<script>window.location.replace('AccountDashboard.php'); </script>";
+        setcookie("accounttype", "$UAccountType");
+        echo "<script>window.location.replace('AccountDashboardRedirect.php'); </script>";
     }else{
         echo "<script>document.cookie = 'loginerror=true; path=/'; window.location.replace('login.php');</script>";
     }

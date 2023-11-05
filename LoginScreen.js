@@ -1,6 +1,5 @@
 window.onload = () => {
     var errorBox = document.getElementById('errorBox');
-    console.log(getCookie('loginerror'));
     if(getCookie('loginerror') == "true"){
         errorBox.style.display = "block";
         document.cookie = "loginerror=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

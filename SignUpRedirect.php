@@ -42,9 +42,10 @@
         }
 
         mysqli_close($conn); 
+        setcookie("accounttype", "$UaccountType");
     ?>
     <script type="text/javascript"> 
-            window.location.replace("AccountDashboard.php");
+        window.location.replace("AccountDashboardRedirect.php");
     </script> 
 </body>
 </html>
