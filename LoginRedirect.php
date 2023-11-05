@@ -35,7 +35,7 @@
         setcookie("password", "$UPassword");
         echo "<script>window.location.replace('AccountDashboard.php'); </script>";
     }else{
-        echo "<script>window.location.replace('login.php'); alert('Incorrect username/password combination');</script>";
+        echo "<script>document.cookie = 'loginerror=true; path=/'; window.location.replace('login.php');</script>";
     }
     ?>
 </body>

@@ -14,6 +14,9 @@
     <div class="background-container">
         <div class="bgc2">
             <form action="LoginRedirect.php" method="post">
+                <div class="error-box" id="errorBox">
+                    <p id="errorText" style="width: 300px; height: 20px; border: 1px solid rgb(148, 2, 2); background-color: rgb(218, 140, 140);">Invalid username/password combination.</p>
+                </div>
                 <h2>Login</h2>
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" placeholder="Your username..." required>
