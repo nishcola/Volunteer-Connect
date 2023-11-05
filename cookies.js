@@ -1,4 +1,4 @@
-if(getCookie("dm_consent") != ""){
+if(getCookie("username") != ""){
   window.location.replace('AccountDashboard.php');
 }
 
