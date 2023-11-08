@@ -8,6 +8,8 @@ body {
     height: 1080px;
     margin: 0;
     padding: 0;
+    font-family: "Montserrat", sans-serif;
+    overflow-y: hidden;
 }
 
 .container {
@@ -15,7 +17,6 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-  
 
 .navbar {
     display: flex;
@@ -55,3 +56,31 @@ width: 100%;
 z-index: 1;
 }
 
+.uad-left-block {
+    width: 15%;
+    min-height: 100vh;
+    background-color: beige;
+    display: flex;
+}
+
+#pfp {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 35%;
+}
+
+#username {
+    margin-top: 10%;
+    text-align: center;
+}
+
+.uad-left-block-content i {
+    padding: 10px;
+}
+
+#account-info {
+    margin-left: 3%;
+    margin-right: 3%;
+}
