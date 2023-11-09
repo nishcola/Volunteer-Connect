@@ -7,7 +7,7 @@
     <title>Create New Task</title>
 </head>
 <body>
-    <form method="post" action = "SignUpRedirect.php">
+    <form method="post" action = "CreateTaskRedirect.php">
         <div>
             <h3 id="scUsername"><em><?php $username = 'username'; echo $_COOKIE[$username];?></em></h3>
             <h2>Create New Task</h2>
