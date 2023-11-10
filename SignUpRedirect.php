@@ -32,20 +32,35 @@
         }
         echo "Connected successfully";
 
-        $sql = "INSERT INTO userrecords (Username, Password, AccountType, ZipCode, FirstName, LastName)
-        VALUES ('$Uusername', '$Upassword', '$UaccountType', '$UzipCode', '$UfirstName', '$UlastName')";
+        $query = "SELECT * FROM userrecords WHERE username = '$Uusername'";
+        $queryResult = mysqli_query($conn, $query);
+        $result = mysqli_fetch_array($queryResult);
 
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+        
+
+        
+
+        if($result == null){
+            $sql = "INSERT INTO userrecords (Username, Password, AccountType, ZipCode, FirstName, LastName)
+            VALUES ('$Uusername', '$Upassword', '$UaccountType', '$UzipCode', '$UfirstName', '$UlastName')";
+
+            if ($conn->query($sql) === TRUE) {
+                echo "New record created successfully";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+            mysqli_close($conn); 
+
+            setcookie("accounttype", "$UaccountType");
+            echo "<script> window.location.replace('AccountDashboardRedirect.php');</script>";
+        }else{
+            mysqli_close($conn); 
+            
+            setcookie("usernametaken", "yes", time() + (86400 * 30), "/");
+            setcookie("username", "yes", time() - (86400 * 30), "path=/DisabilityMatchLocal");
+            setcookie("password", "yes", time() - (86400 * 30), "path=/DisabilityMatchLocal");
+            echo "<script> window.location.replace('signup.php');</script>";
         }
-
-        mysqli_close($conn); 
-        setcookie("accounttype", "$UaccountType");
     ?>
-    <script type="text/javascript"> 
-        window.location.replace("AccountDashboardRedirect.php");
-    </script> 
 </body>
 </html>

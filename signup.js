@@ -1,4 +1,16 @@
 errorBox.style.display = "none";
+
+window.onload = () => {
+    console.log(getCookie('usernametaken'));
+    var errorBox = document.getElementById('errorBox');
+    if(getCookie('usernametaken') == "yes"){
+        displayErrorMsg("Username is taken.");
+        document.cookie = "usernametaken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }else{
+        errorBox.style.display = "none";
+    }
+};
+
 var signupButton = document.getElementById("signupButton");
 signupButton.addEventListener("click", function(){
     console.log("Sign up button clicked");
@@ -260,4 +272,20 @@ function displayErrorMsg(msg){
     }
 
     errorText.innerText = "Error: " + msg;
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
