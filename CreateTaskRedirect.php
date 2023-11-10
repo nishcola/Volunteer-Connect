@@ -20,11 +20,6 @@
 
         $Uusername = $_COOKIE["username"];
 
-        $UtaskName = $_POST["taskName"];
-        $UtaskDescription = $_POST["taskDescription"];
-        $Udate = $_POST["date"];
-        $UstartTime = $_POST["startTime"];
-        $UendTime = $_POST["endTime"];
 
         // Create connection
         $conn = mysqli_connect($sqlservername, $sqlusername, $sqlpassword, $sqldbname);
@@ -33,6 +28,12 @@
             die("Connection failed: " . mysqli_connect_error());
         }
         echo "Connected successfully";
+
+        $UtaskName = $conn -> real_escape_string($_POST["taskName"]);
+        $UtaskDescription = $conn -> real_escape_string($_POST["taskDescription"]);
+        $Udate = $_POST["date"];
+        $UstartTime = $_POST["startTime"];
+        $UendTime = $_POST["endTime"];
 
         $query = "SELECT * FROM userrecords WHERE username = '$Uusername'";
         $result = mysqli_query($conn, $query);
