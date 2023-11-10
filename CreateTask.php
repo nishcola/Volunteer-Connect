@@ -23,8 +23,11 @@
             <p>Date of Task</p>
             <input id="date" type="date" name="date" autocomplete="on" placeholder="Date of the Task..."/>
 
-            <p>Time of Task:</p>
-            <input id="time" type="time" name="time" autocomplete="on" placeholder="Time of your task..."/>
+            <p>Task Start Time:</p>
+            <input id="time" type="time" name="startTime" autocomplete="on" placeholder="When the task starts..."/>
+
+            <p>Task End Time:</p>
+            <input id="time" type="time" name="endTime" autocomplete="on" placeholder="When the task ends..."/>
         </div>
         <input type="submit" value="Submit">
     </form>
