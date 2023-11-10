@@ -40,8 +40,8 @@
         $row = mysqli_fetch_array($result);
         $userID = $row[0];
 
-        $sql = 'INSERT INTO taskrecords (taskName, taskDescription, creatorID, date, startTime, endTime, status)
-        VALUES ("$UtaskName", "$UtaskDescription", "$userID", "$Udate", "$UstartTime", "$UendTime", "Upcoming")';
+        $sql = "INSERT INTO taskrecords (taskName, taskDescription, creatorID, date, startTime, endTime, status)
+        VALUES ('$UtaskName', '$UtaskDescription', '$userID', '$Udate', '$UstartTime', '$UendTime', 'Upcoming')";
 
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";
