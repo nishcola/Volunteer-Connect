@@ -53,14 +53,14 @@ text-decoration: underline;
 position: fixed;
 top: 0;
 width: 100%;
-z-index: 1;
+z-index: 5;
 }
 
 .uad-left-block {
     width: 15%;
     min-height: 100vh;
     background-color: beige;
-    display: flex;
+    display: inline-block;
 }
 
 #pfp {
@@ -83,4 +83,77 @@ z-index: 1;
 #account-info {
     margin-left: 3%;
     margin-right: 3%;
+}
+
+.uad-right-block {
+    height: 1080px;
+    width: 85%;
+    background-color: gray;
+    z-index: 1;
+    float: right;
+    margin-top: 71px;
+}
+
+.profile-navigation-buttons {
+    margin: 10px;
+}
+
+.profile-navigation {
+    padding: 10px;
+    margin-left: none;
+    margin-right: none;
+    background-color: rgb(48, 190, 81);
+    border: 0px;
+    color: white;
+    border-radius: 2px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.profile-navigation:hover {
+    background-color: rgb(37, 146, 63);
+}
+
+.upcoming-tasks-table {
+    margin-left: 10px;
+    color: white;
+}
+
+.upcoming-tasks-table table, th, td {
+    border-collapse: collapse;
+}
+
+.upcoming-tasks-table table {
+    width: 99.3%;
+}
+
+.upcoming-tasks-table td {
+    padding: 15px;
+}
+
+th {
+    background-color: gray;
+}
+
+tr:nth-child(even) {
+    background-color: #acacac;
+}
+
+tr:nth-child(odd) {
+    background-color: #c4c4c4;
+}
+
+.empty-message {
+    color: white;
+    font-size: 50px;    
+    position: absolute;
+    top: 50%;
+    left: 56%;
+    transform: translate(-50%, -50%);
+    border: 1px solid white;
+    display: none;
+}
+
+.empty-message p {
+    margin: 0;
+    padding: 50px;
 }
