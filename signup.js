@@ -63,8 +63,8 @@ signupButton.addEventListener("click", function(){
             displayErrorMsg("password too long");
         }
     }else{
-        document.cookie = `username = ${username}; path=/DisabilityMatchLocal`;
-        document.cookie = `password = ${password}; path=/DisabilityMatchLocal`;
+        document.cookie = `username = ${username}; path=/`;
+        document.cookie = `password = ${password}; path=/`;
         window.location.replace("SignupComplete.php");
     }
 });

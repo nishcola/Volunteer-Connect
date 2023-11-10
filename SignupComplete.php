@@ -7,6 +7,38 @@
     <link rel="stylesheet" href="login.css">
     <title>Sign Up Successful!</title>
 </head>
+<?php 
+    $sqlservername = "localhost";
+    $sqlusername = "root";
+    $sqlpassword = "";
+    $sqldbname = "disabilitymatch";
+
+    // Create connection
+    $conn = mysqli_connect($sqlservername, $sqlusername, $sqlpassword, $sqldbname);
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    echo "Connected successfully";
+
+    $Uusername = $_COOKIE["username"];
+    
+    $query = "SELECT * FROM userrecords WHERE username = '$Uusername'";
+    $queryResult = mysqli_query($conn, $query);
+    $result = mysqli_fetch_array($queryResult);
+
+    if($result != null){
+        mysqli_close($conn); 
+            
+        setcookie("usernametaken", "yes", time() + (86400 * 30), "/");
+        setcookie("username", "yes", time() - (86400 * 30), "/");
+        setcookie("password", "yes", time() - (86400 * 30), "/");
+        echo "<script> window.location.replace('signup.php');</script>";
+    }else{
+        mysqli_close($conn);
+    }
+
+?>
 <body>
     <div class="background-container">
         <form method="post" action = "SignUpRedirect.php">

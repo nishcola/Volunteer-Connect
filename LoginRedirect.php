@@ -32,9 +32,9 @@
     mysqli_close($conn); 
 
     if($associatedPassword == $UPassword){
-        setcookie("username", "$Uusername");
-        setcookie("password", "$UPassword");
-        setcookie("accounttype", "$UAccountType");
+        setcookie("username", "$Uusername", 0, "/");
+        setcookie("password", "$UPassword", 0, "/");
+        setcookie("accounttype", "$UAccountType", 0, "/");
         echo "<script>window.location.replace('AccountDashboardRedirect.php'); </script>";
     }else{
         echo "<script>document.cookie = 'loginerror=true; path=/'; window.location.replace('login.php');</script>";
