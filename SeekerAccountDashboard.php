@@ -25,7 +25,7 @@
     <div class="uad-left-block">
         <div class="uad-left-block-content">
             <img id="pfp" src='images/115-1150152_default-profile-picture-avatar-png-green.png'>
-            <h1 id="username">Username</h1>
+            <h1 id="username">Welcome, <br /><?php $username = 'username'; echo $_COOKIE[$username];?>!</h1>
         </div>
     </div>
     <div class="uad-right-block">
