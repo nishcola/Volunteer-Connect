@@ -66,9 +66,3 @@ button, input[type="submit"]:hover {
     font-size: 9px;
     color: rgb(165, 165, 165);
 }
-.error-box{
-    width: 300px;
-    height: 20px;
-    border: 1px solid rgb(148, 2, 2);
-    background-color: rgb(218, 140, 140);
-}
