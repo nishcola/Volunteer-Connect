@@ -41,6 +41,13 @@
 
                     <p>Slots Available</p>
                     <input type="number" name="maxSlots" step="1" min="1"></input>
+
+                    <p>Address:</p>
+                    <input id="taskAddress" type="text" name="taskAddress" autocomplete="on"
+                        placeholder="Street address..." />
+
+                    <p>Zip Code:</p>
+                    <input id="taskZipCode" type="number" name="taskZipCode" autocomplete="on"/>
                 </div>
                 <input type="submit" value="Submit">
             </form>

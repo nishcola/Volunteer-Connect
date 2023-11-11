@@ -35,14 +35,16 @@
         $UstartTime = $_POST["startTime"];
         $UendTime = $_POST["endTime"];
         $UmaxSlots = $_POST["maxSlots"];
+        $UtaskAddress = $_POST["taskAddress"];
+        $UtaskZipCode = $_POST["taskZipCode"];
 
         $query = "SELECT * FROM userrecords WHERE username = '$Uusername'";
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_array($result);
         $userID = $row[0];
 
-        $sql = "INSERT INTO taskrecords (taskName, taskDescription, creatorID, date, startTime, endTime, status, maxSlots, slotsFilled)
-        VALUES ('$UtaskName', '$UtaskDescription', '$userID', '$Udate', '$UstartTime', '$UendTime', 'Upcoming', '$UmaxSlots', 0)";
+        $sql = "INSERT INTO taskrecords (taskName, taskDescription, creatorID, date, startTime, endTime, status, maxSlots, slotsFilled, taskAddress, taskZipCode)
+        VALUES ('$UtaskName', '$UtaskDescription', '$userID', '$Udate', '$UstartTime', '$UendTime', 'Upcoming', '$UmaxSlots', 0, '$UtaskAddress', '$UtaskZipCode')";
 
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";
