@@ -71,8 +71,12 @@ z-index: 5;
     margin-top: 35%;
 }
 
-#username {
+#username-label {
     margin-top: 10%;
+    text-align: center;
+}
+
+#usernameText {
     text-align: center;
 }
 
@@ -158,16 +162,27 @@ tr:nth-child(odd) {
     padding: 50px;
 }
 
+#emptyMessage {
+    color: white;
+    font-size: 20px;    
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border: 1px solid white;
+    display: none;
+    top: 43%;
+    left: 30.25%;
+}
+
 .task-info-button {
-        padding: 20px;
-        margin-left: 60px;
-        margin-right: none;
-        background-color: rgb(48, 190, 81);
-        border: 0px;
-        color: white;
-        border-radius: 2px;
-        font-family: "Montserrat", sans-serif;
-        border-radius: 5px;
+    padding: 20px;
+    margin-left: 60px;
+    margin-right: none;
+    background-color: rgb(48, 190, 81);
+    border: 0px;
+    color: white;
+    border-radius: 2px;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 5px;
 }
 
 .task-info-button:hover {
@@ -233,4 +248,9 @@ tr:nth-child(odd) {
 
 .volenteer-Completed-button:hover {
     background-color: rgb(7, 107, 4);
+}
+
+.no-options-text {
+    color: rgb(49, 49, 49);
+    font-size: medium;
 }
