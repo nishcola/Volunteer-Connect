@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="AccountDashboard.css">
     <script src="https://kit.fontawesome.com/bf12c23961.js" crossorigin="anonymous"></script>
+    <script src='date.js' type='text/javascript'></script>
     <script defer src="HelperAccountDashboard.js"></script>
     <title>Account Dashboard</title>
 </head>
 
 <body>
+    
     <div class="navbar sticky" id="navbar">
         <div class="links">
             <a href="#">Home</a>
@@ -43,59 +45,87 @@
             <a href="#"><button class="profile-navigation">Upcoming Tasks</button></a>
             <a href="#"><button class="profile-navigation">Recently Completed</button></a>
         </div>
-        <div class="empty-message">
+        <div class="empty-message" id="emptyMessage">
             <p>You have no upcoming tasks!</p>
         </div>
         <div class="upcoming-tasks-table">
-            <table>
-                <tr>
-                    <th style="width:86%;"></th>
-                    <th style="width:8%;"></th>
-                    <th style="width:4%;"></th>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Date</td>
-                    <td>Event Page</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Date</td>
-                    <td>Event Page</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Date</td>
-                    <td>Event Page</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Date</td>
-                    <td>Event Page</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Date</td>
-                    <td>Event Page</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Date</td>
-                    <td>Event Page</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Date</td>
-                    <td>Event Page</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Date</td>
-                    <td>Event Page</td>
-                </tr>
+            <table id="taskTable">
+                <tbody id="taskTableBody">
+                    <tr>
+                        <th style="width:86%;"></th>
+                        <th style="width:8%;"></th>
+                        <th style="width:4%;"></th>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
+    <?php 
+        $sqlservername = "localhost";
+        $sqlusername = "root";
+        $sqlpassword = "";
+        $sqldbname = "disabilitymatch";
+
+        // Create connection
+        $conn = mysqli_connect($sqlservername, $sqlusername, $sqlpassword, $sqldbname);
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        //echo "Connected successfully";
+
+        $tasks = array();
+        $Uusername = $_COOKIE["username"];
+
+        $query = "SELECT * FROM userrecords WHERE username = '$Uusername'";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+        $userId = $row[0];
+
+        $query = "SELECT * FROM taskuserxref WHERE userid = '$userId'";
+        $result = mysqli_query($conn, $query);
+        $rows = [];
+        while($row = $result->fetch_row()){
+            $rows[] = $row;
+        }
+
+
+        if(count($rows) == 0){
+            echo"<script defer>document.getElementById('taskTable').style.display='none'; document.getElementById('emptyMessage').style.display='block';</script>";
+            mysqli_close($conn); 
+        }else{
+            echo"<script defer>document.getElementById('taskTable').style.display='block'; document.getElementById('emptyMessage').style.display='none';</script>";
+            for($i=0; $i<count($rows); $i++){
+                $taskId = $rows[$i][1];
+                $query = "SELECT * FROM taskrecords WHERE taskid = '$taskId'";
+                $result = mysqli_query($conn, $query);
+                $currentRow = mysqli_fetch_array($result);
+                
+                $dp1 = $currentRow[1];
+                $dp2 = $currentRow[4];
+
+                echo"
+                    <script defer>
+                        var table = document.getElementById('taskTable');
+                        console.log(table);
+                        
+                        row = table.insertRow(table.rows.length);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+
+                        var date = Date.parse('$dp2').toString('M/d/yy');
+                        //var date = new Date();
+                        //date = date.today();
+                        cell1.innerHTML = '$dp1';
+                        cell2.innerHTML = date;
+                        cell3.innerHTML = '<a href=`HelperAccountDashboard.php/#`>Event Page</a>';
+                    </script>";
+            }
+
+            mysqli_close($conn); 
+        }
+    ?>
 </body>
 
 </html>
