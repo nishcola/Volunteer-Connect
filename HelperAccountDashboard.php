@@ -27,17 +27,7 @@
     <div class="uad-left-block">
         <div class="uad-left-block-content">
             <img id="pfp" src='images/115-1150152_default-profile-picture-avatar-png-green.png'>
-            <h1 id="username">Username</h1>
-            <div id="account-info">
-                <i class="fa-solid fa-envelope"></i><label>Email: lorem@ipsum.dolor</label>
-                <br />
-                <i class="fa-solid fa-handshake"></i><label>Type: Helper</label>
-                <br />
-                <i class="fa-solid fa-house"></i><label>Zip Code: 17050</label>
-                <br />
-                <i class="fa-solid fa-lock"></i><label>Password: e********</label>
-                <br />
-            </div>
+            <h1 id="username">Welcome, <br /><?php $username = 'username'; echo $_COOKIE[$username];?>!</h1>
         </div>
     </div>
     <div class="uad-right-block">
