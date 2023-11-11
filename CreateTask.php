@@ -38,6 +38,9 @@
 
                     <p>Task End Time:</p>
                     <input id="time" type="time" name="endTime" autocomplete="on" placeholder="When the task ends..." />
+
+                    <p>Slots Available</p>
+                    <input type="number" name="maxSlots" step="1" min="1"></input>
                 </div>
                 <input type="submit" value="Submit">
             </form>
