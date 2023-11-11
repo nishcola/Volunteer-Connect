@@ -173,3 +173,64 @@ tr:nth-child(odd) {
 .task-info-button:hover {
     background-color: rgb(37, 146, 63);
 }
+
+.title {
+    text-align: center;
+    background-color: white;
+    margin: 0;
+    padding: 1vw;
+}
+
+
+
+.task-description {
+    text-align: left;
+    font-size: large;
+    margin: 1vw;
+}
+
+.task-info {
+    text-align: left;
+    font-size: large;
+    margin: 1vw;
+}
+
+.task-description-title{
+    text-align: left;
+    font-size: x-large;
+    margin: 1vw;
+}
+
+.volenteer-Remove-button{
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: none;
+    background-color: rgb(190, 48, 48);
+    border: 0px;
+    color: white;
+    border-radius: 2px;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 5px;
+    align-self: right;
+}
+
+.volenteer-Completed-button{
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: none;
+    background-color: rgb(53, 190, 48);
+    border: 0px;
+    color: white;
+    border-radius: 2px;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 5px;
+    align-self: right;
+}
+
+.volenteer-Remove-button:hover {
+    background-color: rgb(98, 6, 6);
+}
+
+.volenteer-Completed-button:hover {
+    background-color: rgb(7, 107, 4);
+}
