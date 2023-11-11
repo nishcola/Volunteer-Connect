@@ -157,3 +157,19 @@ tr:nth-child(odd) {
     margin: 0;
     padding: 50px;
 }
+
+.task-info-button {
+        padding: 20px;
+        margin-left: 60px;
+        margin-right: none;
+        background-color: rgb(48, 190, 81);
+        border: 0px;
+        color: white;
+        border-radius: 2px;
+        font-family: "Montserrat", sans-serif;
+        border-radius: 5px;
+}
+
+.task-info-button:hover {
+    background-color: rgb(37, 146, 63);
+}

@@ -27,11 +27,12 @@
             <img id="pfp" src='images/115-1150152_default-profile-picture-avatar-png-green.png'>
             <h1 id="username">Task created by: <br />Username</h1>
             <div class="task-information">
-            <i class="fa-solid fa-calendar-days"></i>
-            <i class="fa-solid fa-hourglass-start"></i>
-            <i class="fa-solid fa-hourglass-end"></i>
-            <i class="fa-solid fa-handshake-angle"></i>
-            <i class="fa-solid fa-house"></i>
+                <p><i class="fa-solid fa-calendar-days"></i> Date: </p>
+                <p><i class="fa-solid fa-hourglass-start"></i> Start Time:</p>
+                <p><i class="fa-solid fa-hourglass-end"></i> End Time: </p>
+                <p><i class="fa-solid fa-handshake-angle"></i> Slots Available:</p><br />
+                <button class="task-info-button">Sign Me Up!</button><br /><br />
+                <button class="task-info-button" id="complete">Mark As Complete.</button>
             </div>
         </div>
     </div>
