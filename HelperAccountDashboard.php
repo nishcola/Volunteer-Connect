@@ -42,11 +42,11 @@
     </div>
     <div class="uad-right-block">
         <div class="profile-navigation-buttons">
-            <a href="#"><button class="profile-navigation">Upcoming Tasks</button></a>
-            <a href="#"><button class="profile-navigation">Recently Completed</button></a>
+            <a href="#"><button class="profile-navigation" id="upcomingButton">Upcoming Tasks</button></a>
+            <a href="#"><button class="profile-navigation" id="completedButton">Recently Completed</button></a>
         </div>
         <div class="empty-message" id="emptyMessage">
-            <p>You have no upcoming tasks!</p>
+            <p id="emptyText">Test</p>
         </div>
         <div class="upcoming-tasks-table">
             <table id="taskTable">
@@ -89,42 +89,60 @@
             $rows[] = $row;
         }
 
-
-        if(count($rows) == 0){
-            echo"<script defer>document.getElementById('taskTable').style.display='none'; document.getElementById('emptyMessage').style.display='block';</script>";
-            mysqli_close($conn); 
+        if($_COOKIE["tableMode"] == "Completed"){
+            $tableMode = 'Completed';
         }else{
-            echo"<script defer>document.getElementById('taskTable').style.display='block'; document.getElementById('emptyMessage').style.display='none';</script>";
-            for($i=0; $i<count($rows); $i++){
-                $taskId = $rows[$i][1];
-                $query = "SELECT * FROM taskrecords WHERE taskid = '$taskId'";
-                $result = mysqli_query($conn, $query);
-                $currentRow = mysqli_fetch_array($result);
-                
-                $dp1 = $currentRow[1];
-                $dp2 = $currentRow[4];
+            $tableMode = 'Upcoming';
+        }
 
-                echo"
-                    <script defer>
-                        var table = document.getElementById('taskTable');
-                        console.log(table);
-                        
+        for($i=0; $i<count($rows); $i++){
+            $taskId = $rows[$i][1];
+            $query = "SELECT * FROM taskrecords WHERE taskid = '$taskId'";
+            $result = mysqli_query($conn, $query);
+            $currentRow = mysqli_fetch_array($result);
+            
+            $taskName = $currentRow[1];
+            $date = $currentRow[4];
+            $status = $currentRow[7];
+
+            echo"<script defer>
+                    var table = document.getElementById('taskTable');
+                    
+                    if(('$tableMode' == 'Upcoming' && '$status' == 'Upcoming') || ('$tableMode' == 'Completed' && '$status' == 'Completed')){
                         row = table.insertRow(table.rows.length);
                         var cell1 = row.insertCell(0);
                         var cell2 = row.insertCell(1);
                         var cell3 = row.insertCell(2);
 
-                        var date = Date.parse('$dp2').toString('M/d/yy');
-                        //var date = new Date();
-                        //date = date.today();
-                        cell1.innerHTML = '$dp1';
+                        var date = Date.parse('$date').toString('M/d/yy');
+                        cell1.innerHTML = '$taskName';
                         cell2.innerHTML = date;
                         cell3.innerHTML = '<a href=`HelperAccountDashboard.php/#`>Event Page</a>';
-                    </script>";
-            }
-
-            mysqli_close($conn); 
+                    }
+                </script>";
         }
+
+        mysqli_close($conn);
+
+        echo"<script defer>
+                var table = document.getElementById('taskTable');
+                var emptyText = document.getElementById('emptyText');
+
+                if(table.rows.length == 1){
+                    document.getElementById('taskTable').style.display='none'; 
+                    document.getElementById('emptyMessage').style.display='block';
+
+                    if('$tableMode' == 'Upcoming'){
+                        emptyText.textContent = 'You have no upcoming tasks!';
+                    }else{
+                        emptyText.textContent = 'You have no completed tasks.';
+                    }
+                }else{
+                    document.getElementById('taskTable').style.display='block'; 
+                    document.getElementById('emptyMessage').style.display='none';
+                }
+                
+            </script>";
     ?>
 </body>
 

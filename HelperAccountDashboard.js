@@ -7,3 +7,30 @@ logoutLink.addEventListener('click', function(){
     setTimeout(function(){window.location.replace('index.php');}, 30);
 });
 
+upcomingButton = document.getElementById('upcomingButton');
+upcomingButton.addEventListener('click', function(){
+    document.cookie = "tableMode=Upcoming; path=/;";
+    location.reload();
+});
+
+completedButton = document.getElementById('completedButton');
+completedButton.addEventListener('click', function(){
+    document.cookie = "tableMode=Completed; path=/;";
+    location.reload();
+});
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
