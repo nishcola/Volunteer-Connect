@@ -20,9 +20,24 @@
                 <h2>Sign Up</h2>
                 Username: <input id="username" type="text" autocomplete="on" placeholder="Choose a username..."/>
                 <br />
+                <div class = "password-rules">Username should contain the following: <br>
+                    <ul>
+                        <li>Username must be longer than 8 characters</li>
+                        <li>Username must be shorter than 16 characters</li>
+                    </ul>
+                </div>
                 Password: <input id="password" type="password" autocomplete="on" placeholder="Choose a password..."/>
                 <br />
-                <!-- <input type="submit" id="signupButton" value="Sign Up"> -->
+                <div class = "password-rules">Password should contain the following: <br>
+                    <ul>
+                        <li>Password must be longer than 8 characters</li>
+                        <li>Password must be shorter than 16 characters</li>
+                        <li>Password must have a least one lowercase letter</li>
+                        <li>Password must have a least one uppercase letter</li>
+                        <li>Password must have a least one Number</li>
+                        <li>Password must have a least one Special character</li>
+                    </ul>
+                </div>
                 <button type="button" id="signupButton">Sign Up</button>
                 <div class="login-section">
                     <p>Already have an account?<br><a href="login.php">Log in here</a>.</p>

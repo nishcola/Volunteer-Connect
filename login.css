@@ -62,7 +62,7 @@ button, input[type="submit"]:hover {
     text-align: center;
     margin-top: 20px;
 }
-#passwordInfo {
-    font-size: 9px;
-    color: rgb(165, 165, 165);
+
+.password-rules{
+    font-size: x-small;
 }

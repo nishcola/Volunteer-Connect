@@ -1,3 +1,7 @@
+if(getCookie("username") == ""){
+    window.location.replace('index.php');
+}
+
 logoutLink = document.getElementById('logoutLink');
 logoutLink.addEventListener('click', function(){
     document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

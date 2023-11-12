@@ -1,4 +1,6 @@
-if(getCookie('accounttype') == 'Helper'){
+if (getCookie('username') == ''){
+    window.location.replace('index.php');
+}else if(getCookie('accounttype') == 'Helper'){
     window.location.replace('HelperAccountDashboard.php');
 }else{
     window.location.replace('SeekerAccountDashboard.php');

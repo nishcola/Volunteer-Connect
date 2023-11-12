@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signing In...</title>
+    <script defer src="RedirectToHome.js"></script>
 </head>
 <body>
     <p id="taskName">name: <?php echo $_POST["taskName"]; ?></p>
