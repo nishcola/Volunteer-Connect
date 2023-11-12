@@ -51,18 +51,6 @@
                     <th>Volunteers: </th>
                     <th style = "width:12%">Options</th>
                 </tr>
-                <tr>
-                    <td>Tharrrruuuuunnnnn</td>
-                    <td><button class="volenteer-Remove-button">Remove</button><p class="no-options-text">N/A</p></td>
-                </tr>
-                <tr>
-                    <td>Ram</td>
-                    <td><button class="volenteer-Remove-button">Remove</button><p class="no-options-text">N/A</p></td>
-                </tr>
-                <tr>
-                    <td>nish_cola</td>
-                    <td><button class="volenteer-Remove-button">Remove</button><p class="no-options-text">N/A</p></td>
-                </tr>
             </tbody>
         </table>
 
@@ -137,7 +125,9 @@
             usernameText.innerText = str9;
         </script>";
 
+        $isCreator = false;
         if($creatorUsername == $_COOKIE['username']){
+            $isCreator = true;
             echo "<script>
                 var signupButton = document.getElementById('signupButton');
                 var markCompleteButton = document.getElementById('markCompleteButton');
@@ -155,18 +145,33 @@
             </script>";
         }
 
-        $query = "SELECT userID FROM taskuserxref WHERE taskID = '$taskId'";
+        $query = "SELECT u.Username FROM userrecords u INNER JOIN taskuserxref xref ON u.UserID = xref.UserID 
+        INNER JOIN taskrecords t ON t.TaskID = xref.TaskID WHERE t.TaskID = '$taskId'";
         $result = mysqli_query($conn, $query);
-        $ids = mysqli_fetch_array($result);
-        echo count($ids);
-        $usernames = [];
-        for($i=0; $i<count($ids) - 1; $i++){
-            $currentId = $ids[$i];
-            $query = "SELECT Username FROM userrecords WHERE UserId = '$currentId'";
-            $result = mysqli_query($conn, $query);
-            $currentUsername = mysqli_fetch_array($result)[0];
-            echo $currentUsername;
+        $rows = [];
+        while($row = $result->fetch_row()){
+            $rows[] = $row;
         }
+
+        for($i=0; $i<count($rows); $i++){
+            $currentUsername = $rows[$i][0];
+            echo "<script>
+                var tableBody = document.getElementById('taskTableBody');
+
+                var row = tableBody.insertRow(1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+
+                cell1.innerText = '$currentUsername';
+                if('$isCreator'){
+                    cell2.innerHTML = `<button class='volenteer-Remove-button'>Remove</button>`;
+                }else{
+                    cell2.innerHTML = `<p class='no-options-text'>N/A</p>`;
+                }
+            </script>";
+        }
+
+        mysqli_close($conn);
     ?>
 </body>
 </html>

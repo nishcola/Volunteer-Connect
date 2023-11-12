@@ -1,5 +1,16 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html id="test" lang="en">
+
+<script>
+    function redirect(taskId){
+        document.cookie = `taskId = ${taskId}; path=/`;
+        window.location.replace('TaskPage.php');
+    }
+
+    function setLink(cell, taskId){
+        cell.innerHTML = `<button onclick='redirect(${taskId})'>Task Page</button>`;
+    }
+</script>
 
 <head>
     <meta charset="UTF-8">
@@ -94,6 +105,7 @@
             $taskName = $currentRow[1];
             $date = $currentRow[4];
             $status = $currentRow[7];
+            $cell3HTML = "<button onclick=`redirect('$taskId');`>Event Page</button>";
 
             echo"<script defer>
                     var table = document.getElementById('taskTable');
@@ -107,7 +119,8 @@
                         var date = Date.parse('$date').toString('M/d/yy');
                         cell1.innerHTML = '$taskName';
                         cell2.innerHTML = date;
-                        cell3.innerHTML = '<a href=`HelperAccountDashboard.php/#`>Event Page</a>';
+                        
+                        setLink(cell3, '$taskId');
                     }
                 </script>";
         }
@@ -135,5 +148,6 @@
             </script>";
     ?>
 </body>
+
 
 </html>
