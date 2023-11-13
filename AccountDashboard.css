@@ -113,6 +113,10 @@ z-index: 5;
     font-family: "Montserrat", sans-serif;
 }
 
+.create-task-button {
+    float: right;
+}
+
 .profile-navigation:hover {
     background-color: rgb(37, 146, 63);
 }

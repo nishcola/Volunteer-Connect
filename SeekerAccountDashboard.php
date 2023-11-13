@@ -30,9 +30,9 @@
     </div>
     <div class="uad-right-block">
         <div class="profile-navigation-buttons">
-            <a href="CreateTask.php"><button class="profile-navigation"><strong>Create Task</strong></button></a>
-            <a href="#"><button class="profile-navigation">Upcoming Tasks</button></a>
-            <a href="#"><button class="profile-navigation">Recently Completed</button></a>
+            <a href="CreateTask.php" class="create-task-button"><button class="profile-navigation"><strong>Create New Task</strong></button></a>
+            <a href="#"><button class="profile-navigation">Your Tasks</button></a>
+            <a href="#"><button class="profile-navigation">Your Previous Tasks</button></a>
         </div>
         <div class="empty-message">
             <p>You have no upcoming tasks!</p>
@@ -87,6 +87,24 @@
             </table>
         </div>
     </div>
+    <?php 
+        $sqlservername = "localhost";
+        $sqlusername = "root";
+        $sqlpassword = "";
+        $sqldbname = "disabilitymatch";
+
+        $conn = mysqli_connect($sqlservername, $sqlusername, $sqlpassword, $sqldbname);
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $Uusername = $_COOKIE["username"];
+
+        $query = "";
+
+
+        mysqli_close($conn);
+    ?>
 </body>
 
 </html>
