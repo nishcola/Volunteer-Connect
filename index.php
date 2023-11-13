@@ -44,6 +44,7 @@
                         tenetur.
                         Recusandae id porro rem quibusdam, accusamus voluptates asperiores provident culpa quam dolorem
                         animi odio obcaecati?</p>
+                        <a href="signup.php"><button class="homepage-button" id="goToServices">Start Now</button></a>
                 </div>
             </div>
         </div>
@@ -55,7 +56,6 @@
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, expedita numquam? Aut in, 
                         optio quaerat quas et corporis reprehenderit quia, tempora repellat nisi enim hic ex dolorum, modi reiciendis necessitatibus.
                     </p>
-                    <a href="services.php"><button class="homepage-button" id="goToServices">Start Now</button></a>
                 </div>
                 <div class="line"></div>
                 <div class="services-div-2">
