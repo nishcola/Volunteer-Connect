@@ -19,7 +19,6 @@
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    echo "Connected successfully";
 
     $Uusername = $_COOKIE["username"];
     
@@ -41,6 +40,7 @@
 ?>
 <body>
     <div class="background-container">
+        <div class="bgc2">
         <form method="post" action = "SignUpRedirect.php">
             <div>
                 <h3 id="scUsername">Welcome, <em><?php $username = 'username'; echo $_COOKIE[$username];?></em></h3>
@@ -67,6 +67,6 @@
             </div>
             <input type="submit" value="Submit">
         </form>
-        
+        </div>
     </div>
 </body>
