@@ -42,7 +42,7 @@
                     <p>Slots Available</p>
                     <input type="number" name="maxSlots" step="1" min="1" style="width: 93.5%; padding: 10px; border-radius: 5px; border: none;"></input>
 
-                    <p>Address:</p>
+                    <p>Address (Street, city, state):</p>
                     <input id="taskAddress" type="text" name="taskAddress" autocomplete="on"
                         placeholder="Street address..." style="width: 100%; padding: 10px; border-radius: 5px; border: none;"/>
 

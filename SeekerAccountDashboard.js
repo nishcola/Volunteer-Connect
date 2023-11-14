@@ -7,8 +7,21 @@ logoutLink.addEventListener('click', function(){
     document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "accounttype=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "taskId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     
     setTimeout(function(){window.location.replace('index.php');}, 30);
+});
+
+upcomingButton = document.getElementById('upcomingButton');
+upcomingButton.addEventListener('click', function(){
+    document.cookie = "tableMode=Upcoming; path=/;";
+    location.reload();
+});
+
+completedButton = document.getElementById('completedButton');
+completedButton.addEventListener('click', function(){
+    document.cookie = "tableMode=Completed; path=/;";
+    location.reload();
 });
 
 function getCookie(cname) {

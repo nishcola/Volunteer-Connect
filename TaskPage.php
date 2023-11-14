@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<script>
+    function setLink(cell, username){
+        cell.innerHTML = `<button onclick='removeVolunteer("${username}")' class='volenteer-Remove-button'>Remove</button>`;
+    }
+
+    function removeVolunteer(username){
+        if(confirm('Are you sure you would like to remove this volunteer?')){
+            document.cookie = `removeVolunteer = ${username}; path=/;`;
+            window.location.replace('RemoveVolunteer.php');
+        }
+    }
+
+    function signup(){
+        window.location.replace('TaskSignupRedirect.php');
+    }
+    
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="AccountDashboard.css">
-    <script defer src="#"></script>
+    <script defer src="TaskPage.js"></script>
     <script src='date.js' type='text/javascript'></script>
     <script src="https://kit.fontawesome.com/bf12c23961.js" crossorigin="anonymous"></script>
     <title>Your Task</title>
@@ -14,7 +47,7 @@
 <body>
     <div class="navbar sticky" id="navbar">
         <div class="links">
-            <a href="#">Home</a>
+            <a href="AccountDashboardRedirect.php">Home</a>
             <a href="#about-heading">About</a>
             <a href="#services">Services</a>
             <a href="#footer">Contact</a>
@@ -33,7 +66,7 @@
                 <p id="startTime"><i class="fa-solid fa-hourglass-start"></i> Start Time:</p>
                 <p id="endTime"><i class="fa-solid fa-hourglass-end"></i> End Time: </p>
                 <p id="slotsText"><i class="fa-solid fa-handshake-angle"></i> Slots Available:</p><br />
-                <button class="task-info-button" id="signupButton">Sign Me Up!</button><br /><br />
+                <button class="task-info-button" id="signupButton" onclick="signup()">Sign Me Up!</button><br /><br />
                 <button class="task-info-button" id="markCompleteButton">Mark As Complete.</button>
             </div>
         </div>
@@ -71,6 +104,8 @@
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
+
+        $Uusername = $_COOKIE['username'];
 
         $query = "SELECT * FROM taskrecords WHERE taskID = '$taskId'";
         $result = mysqli_query($conn, $query);
@@ -155,6 +190,7 @@
 
         for($i=0; $i<count($rows); $i++){
             $currentUsername = $rows[$i][0];
+
             echo "<script>
                 var tableBody = document.getElementById('taskTableBody');
 
@@ -164,14 +200,40 @@
 
                 cell1.innerText = '$currentUsername';
                 if('$isCreator'){
-                    cell2.innerHTML = `<button class='volenteer-Remove-button'>Remove</button>`;
+                    //cell2.innerHTML = `<button onclick='removeVolunteer();' class='volenteer-Remove-button'>Remove</button>`;
+                    setLink(cell2, '$currentUsername');
                 }else{
                     cell2.innerHTML = `<p class='no-options-text'>N/A</p>`;
                 }
             </script>";
         }
 
+        echo "<script>
+            var tableBody = document.getElementById('taskTableBody');
+
+            if(tableBody.rows.length == 1){
+                document.getElementById('taskTable').style.display='none'; 
+                document.getElementById('emptyMessage').style.display='block';
+            }else{
+                document.getElementById('taskTable').style.display='table'; 
+                document.getElementById('emptyMessage').style.display='none';
+            }
+        </script>";
+        
+        $query = "SELECT UserID FROM userrecords WHERE Username = '$Uusername'";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+        $userId = $row[0];
+
+        $query = "SELECT * FROM taskuserxref WHERE UserID = '$userId' AND TaskID = '$taskId'";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+        
         mysqli_close($conn);
+
+        if($row != null){
+            echo "<script>document.getElementById('signupButton').style.display = 'none';</script>";
+        }
     ?>
 </body>
 </html>

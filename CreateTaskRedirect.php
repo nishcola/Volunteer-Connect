@@ -53,7 +53,11 @@
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
 
-        mysqli_close($conn); 
+        mysqli_close($conn);
+
+        echo "<script>
+            window.location.replace('AccountDashboardRedirect.php');
+        </script>";
     ?>
 </body>
 </html>
