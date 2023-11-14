@@ -102,7 +102,7 @@ z-index: 5;
     margin: 10px;
 }
 
-.profile-navigation {
+.profile-navigation, #taskButton {
     padding: 10px;
     margin-left: none;
     margin-right: none;
@@ -118,6 +118,10 @@ z-index: 5;
 }
 
 .profile-navigation:hover {
+    background-color: rgb(37, 146, 63);
+}
+
+#taskButton:hover {
     background-color: rgb(37, 146, 63);
 }
 
@@ -199,8 +203,6 @@ tr:nth-child(odd) {
     padding: 1vw;
 }
 
-
-
 .task-description {
     text-align: left;
     font-size: large;
@@ -220,8 +222,8 @@ tr:nth-child(odd) {
 }
 
 .volenteer-Remove-button{
-    padding: 5px;
-    margin-left: 5px;
+    padding: 12px;
+    margin-left: 50px;
     margin-right: none;
     background-color: rgb(190, 48, 48);
     border: 0px;
@@ -256,4 +258,8 @@ tr:nth-child(odd) {
 .no-options-text {
     color: rgb(49, 49, 49);
     font-size: medium;
+}
+
+.task-information {
+    text-align: center;
 }

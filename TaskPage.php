@@ -62,7 +62,7 @@
             <h1 id="username-label">Opportunity Provided By: </h1>
             <h1 id="usernameText">Username</h1>
             <div class="task-information">
-                <p id="dateText"><i class="fa-solid fa-calendar-days"></i> Date: </p>
+                <p id="dateText"><i class="fa-solid fa-calendar-days"></i>Date: </p>
                 <p id="startTime"><i class="fa-solid fa-hourglass-start"></i> Start Time:</p>
                 <p id="endTime"><i class="fa-solid fa-hourglass-end"></i> End Time: </p>
                 <p id="slotsText"><i class="fa-solid fa-handshake-angle"></i> Slots Available:</p><br />
@@ -87,7 +87,7 @@
             </tbody>
         </table>
 
-        <div id="emptyMessage">
+        <div id="emptyMessage" style="padding: 50px;">
             <p id="emptyText">No volunteers have signed up for this opportunity yet.</p>
         </div>
     </div>
