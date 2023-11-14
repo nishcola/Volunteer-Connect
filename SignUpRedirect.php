@@ -32,8 +32,8 @@
         }
         echo "Connected successfully";
 
-        $sql = "INSERT INTO userrecords (Username, Password, AccountType, ZipCode, FirstName, LastName)
-        VALUES ('$Uusername', '$Upassword', '$UaccountType', '$UzipCode', '$UfirstName', '$UlastName')";
+        $sql = "INSERT INTO userrecords (Username, Password, AccountType, ZipCode, FirstName, LastName, totalHours)
+        VALUES ('$Uusername', '$Upassword', '$UaccountType', '$UzipCode', '$UfirstName', '$UlastName', 0)";
 
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";

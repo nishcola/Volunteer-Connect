@@ -16,6 +16,12 @@
     function signup(){
         window.location.replace('TaskSignupRedirect.php');
     }
+
+    function markComplete(){
+        if(confirm('Are you sure you want to mark this task as completed?')){
+            window.location.replace('markTaskComplete.php');
+        }
+    }
     
     function getCookie(cname) {
         let name = cname + "=";
@@ -67,7 +73,7 @@
                 <p id="endTime"><i class="fa-solid fa-hourglass-end"></i> End Time: </p>
                 <p id="slotsText"><i class="fa-solid fa-handshake-angle"></i> Slots Available:</p><br />
                 <button class="task-info-button" id="signupButton" onclick="signup()">Sign Me Up!</button><br /><br />
-                <button class="task-info-button" id="markCompleteButton">Mark As Complete.</button>
+                <button class="task-info-button" id="markCompleteButton" onclick="markComplete()">Mark As Complete.</button>
             </div>
         </div>
     </div>
@@ -126,6 +132,7 @@
         $taskDescription = $row[2];
         $address = $row[10];
         $zipCode = $row[11];
+        $status = $row[7];
 
         echo "<script>
             var dateText = document.getElementById('dateText');
@@ -176,6 +183,16 @@
                 var markCompleteButton = document.getElementById('markCompleteButton');
 
                 signupButton.style.display = 'block';
+                markCompleteButton.style.display = 'none';
+            </script>";
+        }
+
+        if($status != "Upcoming"){
+            echo "<script>
+                var signupButton = document.getElementById('signupButton');
+                var markCompleteButton = document.getElementById('markCompleteButton');
+
+                signupButton.style.display = 'none';
                 markCompleteButton.style.display = 'none';
             </script>";
         }
