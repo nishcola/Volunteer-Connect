@@ -162,19 +162,18 @@ tr:nth-child(odd) {
 }
 
 .empty-message p {
-    margin: 0;
     padding: 50px;
 }
 
 #emptyMessage {
     color: white;
-    font-size: 20px;    
+    font-size: 50px;    
     position: absolute;
+    top: 50%;
+    left: 56%;
     transform: translate(-50%, -50%);
     border: 1px solid white;
     display: none;
-    top: 43%;
-    left: 30.25%;
 }
 
 .task-info-button {
