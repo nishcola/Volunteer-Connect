@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html id="test" lang="en">
 
 <script>
@@ -18,12 +18,10 @@
     <link rel="stylesheet" href="AccountDashboard.css">
     <script src="https://kit.fontawesome.com/bf12c23961.js" crossorigin="anonymous"></script>
     <script src='date.js' type='text/javascript'></script>
-    <script defer src="HelperAccountDashboard.js"></script>
     <title>Account Dashboard</title>
 </head>
 
 <body>
-    
     <div class="navbar sticky" id="navbar">
         <div class="links">
             <a href="#">Home</a>
@@ -40,25 +38,29 @@
             <img id="pfp" src='images/115-1150152_default-profile-picture-avatar-png-green.png'>
             <h1 id="username" style="text-align: center;">Welcome, <br /><?php $username = 'username'; echo $_COOKIE[$username];?>!</h1>
         </div>
+        <form method="post" action = 'FindTaskResult.php'>
+                <div class="error-box" id="errorBox" style="padding: 5px;">
+                    <label id="errorText" style="width: 500px; height: 20px; background-color: rgb(218, 140, 140);"></label>
+                </div>
+                Find Task: <input name="taskKeywords" id="taskKeywords" type="text" autocomplete="on" placeholder="Task Keywords"/></br>
+                Or Find Task From Cip Code: <input name="taskZipCode" id="taskZipCode" type="text" autocomplete="on" placeholder="Task Zip Code"/>
+                <input type="submit" value="Submit"></br>
+            </form>
     </div>
     <div class="uad-right-block">
         <div class="profile-navigation-buttons">
-            <a href="#"><button class="profile-navigation" id="upcomingButton">Upcoming Tasks</button></a>
-            <a href="#"><button class="profile-navigation" id="completedButton">Recently Completed</button></a>
-            <a href="FindTask.php"><button class="profile-navigation">Find New Task</button></a>
+        You are looking for: <?php echo $_POST["taskKeywords"]; ?><?php echo $_POST["taskZipCode"]; ?><br>
         </div>
         <div class="empty-message" id="emptyMessage">
-            <p id="emptyText">Test</p>
+            <p id="emptyText">No Tasks Found!</p>
         </div>
         <div class="upcoming-tasks-table">
             <table id="taskTable">
-                <tbody id="taskTableBody">
-                    <tr>
-                        <th style="width:86%;"></th>
-                        <th style="width:8%;"></th>
-                        <th style="width:4%;"></th>
-                    </tr>
-                </tbody>
+                <tr>
+                    <th style="width:86%;"></th>
+                    <th style="width:8%;"></th>
+                    <th style="width:4%;"></th>
+                </tr>
             </table>
         </div>
     </div>
@@ -68,68 +70,87 @@
         $sqlpassword = "";
         $sqldbname = "disabilitymatch";
 
-        // Create connection
         $conn = mysqli_connect($sqlservername, $sqlusername, $sqlpassword, $sqldbname);
-        // Check connection
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        //echo "Connected successfully";
 
-        $tasks = array();
         $Uusername = $_COOKIE["username"];
+        
+        $KeyWords = $_POST['taskKeywords'];
+        $ZipCode = true;
 
-        $query = "SELECT * FROM userrecords WHERE username = '$Uusername'";
-        $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_array($result);
-        $userId = $row[0];
+        $KeyWords = $_POST['taskZipCode'];
 
-        $query = "SELECT * FROM taskuserxref WHERE userid = '$userId'";
+        echo $KeyWords;
+
+        $tableMode = "";
+        if($_COOKIE["tableMode"] == "Completed"){
+            $tableMode = 'Completed';
+        }else{
+            $tableMode = 'Upcoming';
+        }
+        if (!($ZipCode)){
+            $query = "
+            SELECT taskID, taskName, date, status 
+            FROM taskrecords
+            WHERE
+            (
+                (
+                taskName LIKE '%$KeyWords%'
+                OR taskDescription LIKE '%$KeyWords%'
+                )
+                AND status LIKE '%Upcoming%'
+
+            )
+            ";
+        } else {
+            $query = "
+            SELECT taskID, taskName, date, status 
+            FROM taskrecords
+            WHERE
+            (
+                (
+                taskZipCode LIKE '%$KeyWords%'
+                )
+                AND status LIKE '%Upcoming%'
+
+            )
+            ";
+        }
         $result = mysqli_query($conn, $query);
         $rows = [];
         while($row = $result->fetch_row()){
             $rows[] = $row;
         }
 
-        if($_COOKIE["tableMode"] == "Completed"){
-            $tableMode = 'Completed';
-        }else{
-            $tableMode = 'Upcoming';
-        }
-
-        for($i=0; $i<count($rows); $i++){
-            $taskId = $rows[$i][1];
-            $query = "SELECT * FROM taskrecords WHERE taskid = '$taskId'";
-            $result = mysqli_query($conn, $query);
-            $currentRow = mysqli_fetch_array($result);
-            
-            $taskName = $currentRow[1];
-            $date = $currentRow[4];
-            $status = $currentRow[7];
-            $cell3HTML = "<button onclick=`redirect('$taskId');`>Event Page</button>";
-
-            echo"<script defer>
-                    var table = document.getElementById('taskTable');
-                    
-                    if(('$tableMode' == 'Upcoming' && '$status' == 'Upcoming') || ('$tableMode' == 'Completed' && '$status' == 'Completed')){
-                        row = table.insertRow(table.rows.length);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
-
-                        var date = Date.parse('$date').toString('M/d/yy');
-                        cell1.innerHTML = '$taskName';
-                        cell2.innerHTML = date;
-                        
-                        setLink(cell3, '$taskId');
-                    }
-                </script>";
-        }
 
         mysqli_close($conn);
 
-        echo"<script defer>
+        for($i=0; $i<count($rows); $i++){
+            $currentRow = $rows[$i];
+            
+            $taskId = $currentRow[0];
+            $taskName = $currentRow[1];
+            $date = $currentRow[2];
+            $status = $currentRow[3];
+
+            $cell3HTML = "<button class='profile-navigation' onclick=`redirect('$taskId');`>Event Page</button>";
+
+            echo "<script>
                 var table = document.getElementById('taskTable');
+
+                    row = table.insertRow(table.rows.length);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+
+                    var date = Date.parse('$date').toString('M/d/yy');
+                    cell1.innerHTML = '$taskName';
+                    cell2.innerHTML = date;
+                    
+                    setLink(cell3, '$taskId');
+
                 var emptyText = document.getElementById('emptyText');
 
                 if(table.rows.length == 1){
@@ -145,10 +166,9 @@
                     document.getElementById('taskTable').style.display='block'; 
                     document.getElementById('emptyMessage').style.display='none';
                 }
-                
             </script>";
+        }
     ?>
 </body>
-
 
 </html>
