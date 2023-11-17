@@ -284,3 +284,7 @@ tr:nth-child(odd) {
     border-radius: 5px;
     margin-top: 5px;
 }
+
+.findingTaskForm input[type="submit"]:hover {
+    background-color: rgb(7, 107, 4);
+}
