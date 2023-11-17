@@ -263,3 +263,24 @@ tr:nth-child(odd) {
 .task-information {
     text-align: center;
 }
+
+.findingTaskForm {
+    text-align: center;
+}
+
+.findingTaskForm input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    margin-top: 5px;
+}
+
+.findingTaskForm input[type="submit"] {
+    padding: 10px;
+    background-color: rgb(53, 190, 48);
+    border: 0px;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 5px;
+    margin-top: 5px;
+}

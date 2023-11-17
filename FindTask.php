@@ -38,19 +38,19 @@
         <div class="uad-left-block-content">
             <img id="pfp" src='images/115-1150152_default-profile-picture-avatar-png-green.png'>
             <h1 id="username" style="text-align: center;">Welcome, <br /><?php $username = 'username'; echo $_COOKIE[$username];?>!</h1>
-            <form method="post" action = 'FindTaskResult.php'>
+            <form method="post" action = 'FindTaskResult.php' class="findingTaskForm">
                 <div class="error-box" id="errorBox" style="padding: 5px;">
                     <label id="errorText" style="width: 500px; height: 20px; background-color: rgb(218, 140, 140);"></label>
                 </div>
-                Find Task: <input name="taskKeywords" id="taskKeywords" type="text" autocomplete="on" placeholder="Task Keywords"/></br>
-                Or Find Task From Cip Code: <input name="taskZipCode" id="taskZipCode" type="text" autocomplete="on" placeholder="Task Zip Code"/>
+                Find task: <br /> <input name="taskKeywords" id="taskKeywords" type="text" autocomplete="on" placeholder="Keywords to search..."/></br><br />
+                Or, find task from zip code: <input name="taskZipCode" id="taskZipCode" type="text" autocomplete="on" placeholder="Search by zip code..."/>
                 <input type="submit" value="Submit"></br>
             </form>
         </div>
     </div>
     <div class="uad-right-block">
         <div class="profile-navigation-buttons">
-            All Available tasks:
+            <label style="color: white;">All available tasks:</label>
         </div>
         <div class="empty-message" id="emptyMessage">
             <p id="emptyText">No Tasks Found!</p>
