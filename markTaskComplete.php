@@ -73,6 +73,6 @@
 
     mysqli_close($conn);
 
-    echo "<script>window.location.replace('TaskPage.php');</script>"
+    echo "<script>window.location.replace('AccountDashboardRedirect.php');</script>"
 ?>
 </html>

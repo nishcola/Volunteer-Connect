@@ -18,13 +18,14 @@
     <link rel="stylesheet" href="AccountDashboard.css">
     <script src="https://kit.fontawesome.com/bf12c23961.js" crossorigin="anonymous"></script>
     <script src='date.js' type='text/javascript'></script>
+    <script defer src="FindTask.js"></script>
     <title>Account Dashboard</title>
 </head>
 
 <body>
     <div class="navbar sticky" id="navbar">
         <div class="links">
-            <a href="#">Home</a>
+            <a href="AccountDashboardRedirect.php">Home</a>
             <a href="#about-heading">About</a>
             <a href="#services">Services</a>
             <a href="#footer">Contact</a>
@@ -49,7 +50,7 @@
     </div>
     <div class="uad-right-block">
         <div class="profile-navigation-buttons">
-        <label style="color: white;">Results for: <?php echo $_POST["taskKeywords"]; ?><?php echo $_POST["taskZipCode"]; ?><br></label>
+        <label style="color: white;" id="resultsLabel"></label>
         </div>
         <div class="empty-message" id="emptyMessage">
             <p id="emptyText">No Tasks Found!</p>
@@ -77,19 +78,47 @@
 
         $Uusername = $_COOKIE["username"];
         
-        $KeyWords = $_POST['taskKeywords'];
-        $ZipCode = true;
+        $KeyWords = strtolower($_POST['taskKeywords']);
+        $ZipCode = $_POST['taskZipCode'];
 
-        $KeyWords = $_POST['taskZipCode'];
+        $searchCase = "";
+        if($KeyWords == "" && $ZipCode != ""){
+            $searchCase = "case1";
+        }else if($KeyWords != "" && $ZipCode == ""){
+            $searchCase = "case2";
+        }else{
+            $searchCase = "case3";
+        }
 
-        echo $KeyWords;
-
+        echo $searchCase;
         #$tableMode = "";
         #if($_COOKIE["tableMode"] == "Completed"){
         #    $tableMode = 'Completed';
         #}else{
         #    $tableMode = 'Upcoming';
         #}
+        
+        if($searchCase == "case1"){
+            $query = "
+            SELECT taskID, taskName, date, status 
+            FROM taskrecords
+            WHERE(taskZipCode LIKE '%$ZipCode%' AND status LIKE '%Upcoming%')
+            ";
+        }else if($searchCase == "case2"){
+            $query = "
+            SELECT taskID, taskName, date, status 
+            FROM taskrecords
+            WHERE((LOWER(taskName) LIKE '%$KeyWords%' OR LOWER(taskDescription) LIKE '%$KeyWords%') AND status LIKE '%Upcoming%')
+            ";
+        }else{
+            $query = "
+            SELECT taskID, taskName, date, status 
+            FROM taskrecords
+            WHERE((LOWER(taskName) LIKE '%$KeyWords%' OR LOWER(taskDescription) LIKE '%$KeyWords%') AND taskZipCode LIKE '%$ZipCode%' AND status LIKE '%Upcoming%')
+            ";
+        }
+        
+        /*
         if (!($ZipCode)){
             $query = "
             SELECT taskID, taskName, date, status 
@@ -98,7 +127,7 @@
             (
                 (
                 taskName LIKE '%$KeyWords%'
-                OR taskDescription LIKE '%$KeyWords%'
+                OR taskDescription ILIKE '%$KeyWords%'
                 )
                 AND status LIKE '%Upcoming%'
 
@@ -108,18 +137,16 @@
             $query = "
             SELECT taskID, taskName, date, status 
             FROM taskrecords
-            WHERE
-            (
-                taskZipCode LIKE '%$KeyWords%' AND status LIKE '%Upcoming%'
-            )
+            WHERE(taskZipCode LIKE '%$KeyWords%' AND status ILIKE '%Upcoming%')
             ";
         }
+        */
         $result = mysqli_query($conn, $query);
         $rows = [];
         while($row = $result->fetch_row()){
             $rows[] = $row;
         }
-
+        
 
         mysqli_close($conn);
 
@@ -166,6 +193,21 @@
                 */
             </script>";
         }
+
+        echo "<script>
+            resultsLabel = document.getElementById('resultsLabel');
+            var results = 'Results for: ';
+            
+            if('$searchCase' == 'case2'){
+                results += '$KeyWords';
+            }else if('$searchCase' == 'case1'){
+                results += '' + '$ZipCode';
+            }else{
+                results += '$KeyWords' + ' in ' + '$ZipCode';
+            }
+
+            resultsLabel.innerText = results;
+        </script>";
     ?>
 </body>
 

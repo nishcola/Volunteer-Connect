@@ -18,14 +18,14 @@
     <link rel="stylesheet" href="AccountDashboard.css">
     <script src="https://kit.fontawesome.com/bf12c23961.js" crossorigin="anonymous"></script>
     <script src='date.js' type='text/javascript'></script>
-    <script defer src="SeekerAccountDashboard.js"></script>
+    <script defer src="FindTask.js"></script>
     <title>Account Dashboard</title>
 </head>
 
 <body>
     <div class="navbar sticky" id="navbar">
         <div class="links">
-            <a href="#">Home</a>
+            <a href="AccountDashboardRedirect.php">Home</a>
             <a href="#about-heading">About</a>
             <a href="#services">Services</a>
             <a href="#footer">Contact</a>
