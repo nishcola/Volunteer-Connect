@@ -84,12 +84,12 @@
 
         echo $KeyWords;
 
-        $tableMode = "";
-        if($_COOKIE["tableMode"] == "Completed"){
-            $tableMode = 'Completed';
-        }else{
-            $tableMode = 'Upcoming';
-        }
+        #$tableMode = "";
+        #if($_COOKIE["tableMode"] == "Completed"){
+        #    $tableMode = 'Completed';
+        #}else{
+        #    $tableMode = 'Upcoming';
+        #}
         if (!($ZipCode)){
             $query = "
             SELECT taskID, taskName, date, status 
@@ -110,11 +110,7 @@
             FROM taskrecords
             WHERE
             (
-                (
-                taskZipCode LIKE '%$KeyWords%'
-                )
-                AND status LIKE '%Upcoming%'
-
+                taskZipCode LIKE '%$KeyWords%' AND status LIKE '%Upcoming%'
             )
             ";
         }
@@ -139,7 +135,7 @@
 
             echo "<script>
                 var table = document.getElementById('taskTable');
-
+                if('$status' == 'Upcoming'){
                     row = table.insertRow(table.rows.length);
                     var cell1 = row.insertCell(0);
                     var cell2 = row.insertCell(1);
@@ -150,9 +146,10 @@
                     cell2.innerHTML = date;
                     
                     setLink(cell3, '$taskId');
-
+                }
                 var emptyText = document.getElementById('emptyText');
 
+                /*
                 if(table.rows.length == 1){
                     document.getElementById('taskTable').style.display='none'; 
                     document.getElementById('emptyMessage').style.display='block';
@@ -166,6 +163,7 @@
                     document.getElementById('taskTable').style.display='block'; 
                     document.getElementById('emptyMessage').style.display='none';
                 }
+                */
             </script>";
         }
     ?>

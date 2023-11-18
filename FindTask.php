@@ -78,12 +78,12 @@
 
         $Uusername = $_COOKIE["username"];
 
-        $tableMode = "";
-        if($_COOKIE["tableMode"] == "Completed"){
-            $tableMode = 'Completed';
-        }else{
-            $tableMode = 'Upcoming';
-        }
+        #$tableMode = "";
+        #if($_COOKIE["tableMode"] == "Completed"){
+        #    $tableMode = 'Completed';
+        #}else{
+        #    $tableMode = 'Upcoming';
+        #}
         
         $query = "SELECT taskID, taskName, date, status FROM taskrecords";
         $result = mysqli_query($conn, $query);
@@ -107,7 +107,7 @@
             echo "<script>
                 var table = document.getElementById('taskTable');
 
-                if(('$tableMode' == 'Upcoming' && '$status' == 'Upcoming') || ('$tableMode' == 'Completed' && '$status' == 'Completed')){
+                if('$status' == 'Upcoming'){
                     row = table.insertRow(table.rows.length);
                     var cell1 = row.insertCell(0);
                     var cell2 = row.insertCell(1);
@@ -121,7 +121,8 @@
                 }
 
                 var emptyText = document.getElementById('emptyText');
-
+                
+                /*
                 if(table.rows.length == 1){
                     document.getElementById('taskTable').style.display='none'; 
                     document.getElementById('emptyMessage').style.display='block';
@@ -135,6 +136,7 @@
                     document.getElementById('taskTable').style.display='block'; 
                     document.getElementById('emptyMessage').style.display='none';
                 }
+                */
             </script>";
         }
     ?>
