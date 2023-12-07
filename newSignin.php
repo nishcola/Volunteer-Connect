@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sign In | Volunteer Match</title>
+  <title>Sign In | Volunteer Connect</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Wheelchair_symbol.svg/898px-Wheelchair_symbol.svg.png">
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
@@ -98,21 +99,21 @@
           <form class="needs-validation" novalidate>
             <h1 class="h1 py-1 mb-3">Welcome!</h1>
             <div class="form-outline mb-2">
-              <input type="email" id="usernameSignin" class="form-control form-control-lg" />
+              <input type="text" placeholder="Enter your username..." id="usernameSignin" class="form-control form-control-lg"/>
               <label class="form-label" for="usernameSignin">Username</label>
             </div>
             <div class="form-outline mb-1">
-              <input type="password" id="passwordSignin" class="form-control form-control-lg" />
+              <input type="password" placeholder="Enter your password..." id="passwordSignin" class="form-control form-control-lg" />
               <label class="form-label" for="passwordSignin">Password</label>
             </div>
-            <div class="form-check mb-3">
+            <div class="form-check mb-3 py-2">
               <input class="form-check-input" type="checkbox" value="" id="showPass" onclick="showPassword()">
               <label class="form-check-label h6" for="showPass">
                 Show Password
               </label>
             </div>
             <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">Sign in</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="signup.php" class="link-primary">Register</a>
+            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="newSignup.php" class="link-primary">Register</a>
             </p>
           </form>
         </div>
