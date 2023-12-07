@@ -33,34 +33,34 @@ signupButton.addEventListener("click", function(){
         //temp debug stuff:
         if(!checkResults[0]){
             console.log("username taken");
-            displayErrorMsg("username taken");
+            displayErrorMsg("username has been taken.");
         }else if(!checkResults[1]){
             console.log("username too short");
-            displayErrorMsg("username too short");
+            displayErrorMsg("username is too short.");
         }else if(!checkResults[2]){
             console.log("password too short");
-            displayErrorMsg("password too short");
+            displayErrorMsg("password is too short");
         }else if(!checkResults[3]){
             console.log("password does not contain lowercase letter");
-            displayErrorMsg("password does not contain lowercase letter");
+            displayErrorMsg("password does not contain a lowercase letter.");
         }else if(!checkResults[4]){
-            console.log("password does not contain uppercase letter");
-            displayErrorMsg("password does not contain uppercase letter");
+            console.log("password does not contain uppercase letter.");
+            displayErrorMsg("password does not contain an uppercase letter.");
         }else if(!checkResults[5]){
             console.log("password does not contain number");
-            displayErrorMsg("password does not contain number");
+            displayErrorMsg("password does not contain a number.");
         }else if(!checkResults[6]){
             console.log("password does not contain special char");
-            displayErrorMsg("password does not contain special char");
+            displayErrorMsg("password does not contain a special character.");
         }else if(!checkResults[7]){
             console.log("username or password contains a forbidden char");
-            displayErrorMsg("username or password contains a forbidden char");
+            displayErrorMsg("username or password contains a forbidden character.");
         }else if(!checkResults[8]){
             console.log("username too long");
-            displayErrorMsg("username too long");
+            displayErrorMsg("username too long.");
         }else{
             console.log("password too long");
-            displayErrorMsg("password too long");
+            displayErrorMsg("password too long.");
         }
     }else{
         document.cookie = `username = ${username}; path=/`;

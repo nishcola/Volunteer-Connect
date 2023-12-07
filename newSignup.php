@@ -25,17 +25,20 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Start Volunteering!</p>
+                                    <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-4" id="volunteerHeader">Start Volunteering!</p>
 
-                                    <form class="mx-1 mx-md-4">
-
+                                    <form class="mx-1 mx-md-4" method="post">
+                                        <div class="error-box" id="errorBox" style="padding: 5px;">
+                                            <h5><label id="errorText" style="margin-left: 10px;" class="text-danger"></label></h5>
+                                        </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="text" placeholder="Create your username..." id="username"
                                                     class="form-control" />
-                                                <label class="form-label h6 mt-2" for="username"><em>Username must be between 8-16
-                                                    characters.</em></label>
+                                                <label class="form-label h6 mt-2" for="username"><em>Username must be
+                                                        between 8-16
+                                                        characters.</em></label>
                                             </div>
                                         </div>
 
@@ -45,7 +48,7 @@
                                                 <input type="password" id="password" placeholder="Create a password..."
                                                     class="form-control" />
                                                 <label class="form-label mt-2" for="password">
-                                                <hr class="hr" />
+                                                    <hr class="hr" />
                                                     <p class="h6"><em>Your password must:</em></p>
                                                     <p class="mb-0">
                                                         Be between 8-16 characters
@@ -67,24 +70,6 @@
                                             </div>
                                         </div>
 
-                                        <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                            <div class="form-outline flex-fill mb-0">
-                                                <input type="text" id="createFName" class="form-control"
-                                                    placeholder="Enter your first name..." />
-                                                <label class="form-label mt-1" for="createFName"><em><strong>Name (first)</strong></em></label>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex flex-row align-items-center mb-3">
-                                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                                            <div class="form-outline flex-fill mb-0">
-                                                <input type="text" id="createLName" class="form-control"
-                                                    placeholder="Enter your last name..." />
-                                                <label class="form-label mt-1" for="createLName"><em><strong>Name (last)</strong></em></label>
-                                            </div>
-                                        </div>
-
                                         <div class="form-check d-flex justify-content-center mb-4">
                                             <input class="form-check-input me-2" type="checkbox" value="" id="showPass"
                                                 onclick="showPassword()" />
@@ -94,7 +79,8 @@
                                         </div>
 
                                         <div class="d-flex justify-content-center mx-4 mb-3">
-                                            <button type="button" class="btn btn-primary btn-lg">Continue</button>
+                                            <button type="button" class="btn btn-primary btn-lg"
+                                                id="signupButton">Continue</button>
                                         </div>
                                         <div class="d-flex justify-content-center">
                                             <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a
