@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register | Volunteer Connect</title>
-    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Wheelchair_symbol.svg/898px-Wheelchair_symbol.svg.png">
+    <link rel="icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Wheelchair_symbol.svg/898px-Wheelchair_symbol.svg.png">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+    <script defer src="signup.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
@@ -30,38 +32,62 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="text" placeholder="Create your username..." id="createUsername" class="form-control" />
-                                                <label class="form-label" for="createUsername">Username</label>
+                                                <input type="text" placeholder="Create your username..." id="username"
+                                                    class="form-control" />
+                                                <label class="form-label h6 mt-2" for="username"><em>Username must be between 8-16
+                                                    characters.</em></label>
                                             </div>
                                         </div>
 
-                                        <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="d-flex flex-row align-items-center">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="password" id="createPassword" placeholder="Create a password..." class="form-control" />
-                                                <label class="form-label" for="createPassword">Password</label>
+                                                <input type="password" id="password" placeholder="Create a password..."
+                                                    class="form-control" />
+                                                <label class="form-label mt-2" for="password">
+                                                <hr class="hr" />
+                                                    <p class="h6"><em>Your password must:</em></p>
+                                                    <p class="mb-0">
+                                                        Be between 8-16 characters
+                                                    </p>
+                                                    <p class="mb-0">
+                                                        Have at least one lowercase letter
+                                                    </p>
+                                                    <p class="mb-0">
+                                                        Have at least one uppercase letter
+                                                    </p>
+                                                    <p class="mb-0">
+                                                        Have at least one number
+                                                    </p>
+                                                    <p class="mb-3">
+                                                        Have at least one special character
+                                                    </p>
+                                                    <hr class="hr" />
+                                                </label>
                                             </div>
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="text" id="createFName" class="form-control" placeholder="Enter your first name..."/>
-                                                <label class="form-label" for="createFName">Name (first)</label>
+                                                <input type="text" id="createFName" class="form-control"
+                                                    placeholder="Enter your first name..." />
+                                                <label class="form-label mt-1" for="createFName"><em><strong>Name (first)</strong></em></label>
                                             </div>
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-3">
                                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="text" id="createLName" class="form-control" placeholder="Enter your last name..."/>
-                                                <label class="form-label" for="createLName">Name (last)</label>
+                                                <input type="text" id="createLName" class="form-control"
+                                                    placeholder="Enter your last name..." />
+                                                <label class="form-label mt-1" for="createLName"><em><strong>Name (last)</strong></em></label>
                                             </div>
                                         </div>
 
                                         <div class="form-check d-flex justify-content-center mb-4">
-                                            <input class="form-check-input me-2" type="checkbox" value=""
-                                                id="showPass" onclick="showPassword()"/>
+                                            <input class="form-check-input me-2" type="checkbox" value="" id="showPass"
+                                                onclick="showPassword()" />
                                             <label class="form-check-label h6" for="showPass">
                                                 Show Password
                                             </label>
@@ -71,7 +97,8 @@
                                             <button type="button" class="btn btn-primary btn-lg">Continue</button>
                                         </div>
                                         <div class="d-flex justify-content-center">
-                                        <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="newSignin.php" class="link-primary">Log In</a></p>
+                                            <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a
+                                                    href="newSignin.php" class="link-primary">Log In</a></p>
                                         </div>
                                     </form>
 
@@ -159,7 +186,7 @@
     </section>
     <script>
         function showPassword() {
-            var x = document.getElementById("createPassword");
+            var x = document.getElementById("password");
             if (x.type === "password") {
                 x.type = "text";
             } else {
