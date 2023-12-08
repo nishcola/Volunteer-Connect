@@ -37,7 +37,7 @@
         setcookie("accounttype", "$UAccountType", 0, "/");
         echo "<script>window.location.replace('AccountDashboardRedirect.php'); </script>";
     }else{
-        echo "<script>document.cookie = 'loginerror=true; path=/'; window.location.replace('login.php');</script>";
+        echo "<script>document.cookie = 'loginerror=true; path=/'; window.location.replace('newSignin.php');</script>";
     }
     ?>
 </body>

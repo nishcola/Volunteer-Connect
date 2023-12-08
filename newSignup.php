@@ -45,7 +45,7 @@
                                         <div class="d-flex flex-row align-items-center">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="password" id="password" placeholder="Create a password..."
+                                                <input type="password" id="password" placeholder="Create your password..."
                                                     class="form-control" />
                                                 <label class="form-label mt-2" for="password">
                                                     <hr class="hr" />

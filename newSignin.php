@@ -5,10 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sign In | Volunteer Connect</title>
-  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Wheelchair_symbol.svg/898px-Wheelchair_symbol.svg.png">
+  <link rel="icon"
+    href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Wheelchair_symbol.svg/898px-Wheelchair_symbol.svg.png">
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
+  <script defer src="LoginScreen.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
@@ -96,15 +98,20 @@
           </svg>
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-          <form class="needs-validation" novalidate>
+          <form action="LoginRedirect.php" method="post">
             <h1 class="h1 py-1 mb-3">Welcome!</h1>
+            <div class="error-box" id="errorBox" style="padding: 5px;">
+              <h5><label id="errorText" style="margin-left: -5px;" class="text-danger">Invalid credentials. Try again.</label></h5>
+            </div>
             <div class="form-outline mb-2">
-              <input type="text" placeholder="Enter your username..." id="usernameSignin" class="form-control form-control-lg"/>
-              <label class="form-label" for="usernameSignin">Username</label>
+              <input type="text" placeholder="Enter your username..." id="username" name="username"
+                class="form-control form-control-lg" />
+              <label class="form-label h6 mt-2" for="username">Username</label>
             </div>
             <div class="form-outline mb-1">
-              <input type="password" placeholder="Enter your password..." id="passwordSignin" class="form-control form-control-lg" />
-              <label class="form-label" for="passwordSignin">Password</label>
+              <input type="password" placeholder="Enter your password..." id="password" name="password"
+                class="form-control form-control-lg" />
+              <label class="form-label h6 mt-2" for="password">Password</label>
             </div>
             <div class="form-check mb-3 py-2">
               <input class="form-check-input" type="checkbox" value="" id="showPass" onclick="showPassword()">
@@ -112,8 +119,9 @@
                 Show Password
               </label>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">Sign in</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="newSignup.php" class="link-primary">Register</a>
+            <button type="submit" class="btn btn-primary btn-lg btn-block mb-3" id="loginButton">Sign in</button>
+            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="newSignup.php"
+                class="link-primary">Register</a>
             </p>
           </form>
         </div>
