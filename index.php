@@ -22,7 +22,7 @@
                 <a href="#footer">Contact</a>
             </div>
             <div class="greeting">
-                <p><a href="signup.php" style="text-decoration: underline;" id="signupLink">Sign Up</a><a href="login.php" style="text-decoration: underline;">Login</a></p>
+                <p><a href="newSignup.php" style="text-decoration: underline;" id="signupLink">Sign Up</a><a href="newSignin.php" style="text-decoration: underline;">Login</a></p>
             </div>
         </div>
         <div id="darkeningDiv" class="hiddenDiv"></div>

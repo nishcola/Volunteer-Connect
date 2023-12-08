@@ -118,24 +118,27 @@
                     
                     setLink(cell3, '$taskId');
                 }
-
-                var emptyText = document.getElementById('emptyText');
-
-                if(table.rows.length == 1){
-                    document.getElementById('taskTable').style.display='none'; 
-                    document.getElementById('emptyMessage').style.display='block';
-
-                    if('$tableMode' == 'Upcoming'){
-                        emptyText.textContent = 'You have no upcoming tasks!';
-                    }else{
-                        emptyText.textContent = 'You have no completed tasks.';
-                    }
-                }else{
-                    document.getElementById('taskTable').style.display='block'; 
-                    document.getElementById('emptyMessage').style.display='none';
-                }
             </script>";
         }
+
+        echo "<script>
+            var table = document.getElementById('taskTable');    
+            var emptyText = document.getElementById('emptyText');
+        
+            if(table.rows.length == 1){
+                document.getElementById('taskTable').style.display='none'; 
+                document.getElementById('emptyMessage').style.display='block';
+
+                if('$tableMode' == 'Upcoming'){
+                    emptyText.textContent = 'You have no upcoming tasks!';
+                }else{
+                    emptyText.textContent = 'You have no completed tasks.';
+                }
+            }else{
+                document.getElementById('taskTable').style.display='block'; 
+                document.getElementById('emptyMessage').style.display='none';
+            }
+        </script>";
     ?>
 </body>
 
