@@ -93,13 +93,13 @@
 
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="accountType"
-                                                id="helperButton" value="option1" />
+                                                id="helperButton" value="Helper" />
                                             <label class="form-check-label" for="helperButton">Helper</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="accountType"
-                                                id="seekerButton" value="option2" />
+                                                id="seekerButton" value="Seeker" />
                                             <label class="form-check-label" for="seekerButton">Seeker</label>
                                         </div>
                                     </div>
