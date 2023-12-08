@@ -63,16 +63,16 @@
                                     <div class="col-md-6 mb-4">
 
                                         <div class="form-outline">
-                                            <input type="text" id="firstName" class="form-control form-control-lg" name="firstName"/>
-                                            <label class="form-label" for="firstName">First Name</label>
+                                            <input type="text" id="firstName" class="form-control form-control-lg" name="firstName" placeholder="Enter your first name..."/>
+                                            <label class="form-label h6 mt-2" for="firstName">First Name</label>
                                         </div>
 
                                     </div>
                                     <div class="col-md-6 mb-4">
 
                                         <div class="form-outline">
-                                            <input type="text" id="lastName" class="form-control form-control-lg" name="lastName"/>
-                                            <label class="form-label" for="lastName">Last Name</label>
+                                            <input type="text" id="lastName" class="form-control form-control-lg" name="lastName" placeholder="Enter your last name..."/>
+                                            <label class="form-label h6 mt-2" for="lastName">Last Name</label>
                                         </div>
 
                                     </div>
@@ -82,8 +82,8 @@
                                     <div class="col-md-6 mb-4 d-flex align-items-center">
 
                                         <div class="form-outline datepicker w-100">
-                                            <input type="text" class="form-control form-control-lg" id="zipCode" name="zipCode"/>
-                                            <label for="zipCode" class="form-label">Zip Code</label>
+                                            <input type="text" class="form-control form-control-lg" id="zipCode" name="zipCode" placeholder="Enter your zip code..."/>
+                                            <label for="zipCode" class="form-label h6 mt-2">Zip Code</label>
                                         </div>
 
                                     </div>
@@ -93,7 +93,7 @@
 
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="accountType"
-                                                id="helperButton" value="option1" checked />
+                                                id="helperButton" value="option1" />
                                             <label class="form-check-label" for="helperButton">Helper</label>
                                         </div>
 

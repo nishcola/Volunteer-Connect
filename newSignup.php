@@ -25,11 +25,13 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                    <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-4" id="volunteerHeader">Start Volunteering!</p>
+                                    <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-4" id="volunteerHeader">Start
+                                        Volunteering!</p>
 
                                     <form class="mx-1 mx-md-4" method="post">
                                         <div class="error-box" id="errorBox" style="padding: 5px;">
-                                            <h5><label id="errorText" style="margin-left: 10px;" class="text-danger"></label></h5>
+                                            <h5><label id="errorText" style="margin-left: 10px;"
+                                                    class="text-danger"></label></h5>
                                         </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -45,8 +47,8 @@
                                         <div class="d-flex flex-row align-items-center">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="password" id="password" placeholder="Create your password..."
-                                                    class="form-control" />
+                                                <input type="password" id="password"
+                                                    placeholder="Create your password..." class="form-control" />
                                                 <label class="form-label mt-2" for="password">
                                                     <hr class="hr" />
                                                     <p class="h6"><em>Your password must:</em></p>
@@ -69,8 +71,8 @@
                                                 </label>
                                             </div>
                                         </div>
-
-                                        <div class="form-check d-flex justify-content-center mb-4">
+                                        <div class="form-check d-flex mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <input class="form-check-input me-2" type="checkbox" value="" id="showPass"
                                                 onclick="showPassword()" />
                                             <label class="form-check-label h6" for="showPass">
@@ -78,11 +80,13 @@
                                             </label>
                                         </div>
 
-                                        <div class="d-flex justify-content-center mx-4 mb-3">
+                                        <div class="d-flexmx-4 mb-3">
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <button type="button" class="btn btn-primary btn-lg"
                                                 id="signupButton">Continue</button>
                                         </div>
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a
                                                     href="newSignin.php" class="link-primary">Log In</a></p>
                                         </div>
