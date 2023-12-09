@@ -2,12 +2,12 @@
 <html id="test" lang="en">
 
 <script>
-    function redirect(taskId){
+    function redirect(taskId) {
         document.cookie = `taskId = ${taskId}; path=/`;
         window.location.replace('TaskPage.php');
     }
 
-    function setLink(cell, taskId){
+    function setLink(cell, taskId) {
         cell.innerHTML = `<button onclick='redirect(${taskId})'>Task Page</button>`;
     }
 </script>
@@ -19,26 +19,41 @@
     <script src="https://kit.fontawesome.com/bf12c23961.js" crossorigin="anonymous"></script>
     <script src='date.js' type='text/javascript'></script>
     <script defer src="HelperAccountDashboard.js"></script>
+    <link rel="icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Wheelchair_symbol.svg/898px-Wheelchair_symbol.svg.png">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Account Dashboard</title>
 </head>
 
 <body>
-    
-    <div class="navbar sticky" id="navbar">
-        <div class="links">
-            <a href="#">Home</a>
-            <a href="#about-heading">About</a>
-            <a href="#services">Services</a>
-            <a href="#footer">Contact</a>
-        </div>
-        <div class="greeting">
-            <p><a href="#" style="text-decoration: underline;" id="logoutLink">Log Out</a></p>
-        </div>
+    <div class="container-fluid text-bg-dark fixed-top">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-0">
+            <a href="HelperAccountDashboard.php"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap" />
+                </svg>
+                <span class="fs-4 text-white"><strong>Volunteer Connect</strong></span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="FindTask.php" class="nav-link active"
+                        aria-current="page">Find Task</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" id="logoutLink">Log Out</a></li>
+            </ul>
+        </header>
     </div>
     <div class="uad-left-block">
         <div class="uad-left-block-content">
             <img id="pfp" src='images/115-1150152_default-profile-picture-avatar-png-green.png'>
-            <h1 id="username" style="text-align: center;">Welcome, <br /><?php $username = 'username'; echo $_COOKIE[$username];?>!</h1>
+            <h1 id="username" style="text-align: center;">Welcome, <br />
+                <?php $username = 'username';
+                echo $_COOKIE[$username]; ?>!
+            </h1>
         </div>
     </div>
     <div class="uad-right-block">
@@ -62,53 +77,53 @@
             </table>
         </div>
     </div>
-    <?php 
-        $sqlservername = "localhost";
-        $sqlusername = "root";
-        $sqlpassword = "";
-        $sqldbname = "disabilitymatch";
+    <?php
+    $sqlservername = "localhost";
+    $sqlusername = "root";
+    $sqlpassword = "";
+    $sqldbname = "disabilitymatch";
 
-        // Create connection
-        $conn = mysqli_connect($sqlservername, $sqlusername, $sqlpassword, $sqldbname);
-        // Check connection
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
-        //echo "Connected successfully";
+    // Create connection
+    $conn = mysqli_connect($sqlservername, $sqlusername, $sqlpassword, $sqldbname);
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    //echo "Connected successfully";
+    
+    $tasks = array();
+    $Uusername = $_COOKIE["username"];
 
-        $tasks = array();
-        $Uusername = $_COOKIE["username"];
+    $query = "SELECT * FROM userrecords WHERE username = '$Uusername'";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($result);
+    $userId = $row[0];
 
-        $query = "SELECT * FROM userrecords WHERE username = '$Uusername'";
+    $query = "SELECT * FROM taskuserxref WHERE userid = '$userId'";
+    $result = mysqli_query($conn, $query);
+    $rows = [];
+    while ($row = $result->fetch_row()) {
+        $rows[] = $row;
+    }
+
+    if ($_COOKIE["tableMode"] == "Completed") {
+        $tableMode = 'Completed';
+    } else {
+        $tableMode = 'Upcoming';
+    }
+
+    for ($i = 0; $i < count($rows); $i++) {
+        $taskId = $rows[$i][1];
+        $query = "SELECT * FROM taskrecords WHERE taskid = '$taskId'";
         $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_array($result);
-        $userId = $row[0];
+        $currentRow = mysqli_fetch_array($result);
 
-        $query = "SELECT * FROM taskuserxref WHERE userid = '$userId'";
-        $result = mysqli_query($conn, $query);
-        $rows = [];
-        while($row = $result->fetch_row()){
-            $rows[] = $row;
-        }
+        $taskName = $currentRow[1];
+        $date = $currentRow[4];
+        $status = $currentRow[7];
+        $cell3HTML = "<button onclick=`redirect('$taskId');`>Event Page</button>";
 
-        if($_COOKIE["tableMode"] == "Completed"){
-            $tableMode = 'Completed';
-        }else{
-            $tableMode = 'Upcoming';
-        }
-
-        for($i=0; $i<count($rows); $i++){
-            $taskId = $rows[$i][1];
-            $query = "SELECT * FROM taskrecords WHERE taskid = '$taskId'";
-            $result = mysqli_query($conn, $query);
-            $currentRow = mysqli_fetch_array($result);
-            
-            $taskName = $currentRow[1];
-            $date = $currentRow[4];
-            $status = $currentRow[7];
-            $cell3HTML = "<button onclick=`redirect('$taskId');`>Event Page</button>";
-
-            echo"<script defer>
+        echo "<script defer>
                     var table = document.getElementById('taskTable');
                     
                     if(('$tableMode' == 'Upcoming' && '$status' == 'Upcoming') || ('$tableMode' == 'Completed' && '$status' == 'Completed')){
@@ -124,11 +139,11 @@
                         setLink(cell3, '$taskId');
                     }
                 </script>";
-        }
+    }
 
-        mysqli_close($conn);
+    mysqli_close($conn);
 
-        echo"<script defer>
+    echo "<script defer>
                 var table = document.getElementById('taskTable');
                 var emptyText = document.getElementById('emptyText');
 

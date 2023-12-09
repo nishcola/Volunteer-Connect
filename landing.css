@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+/*@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 html {
   scroll-behavior: smooth;
@@ -194,7 +194,7 @@ body {
 .services-flex-container p {
   padding-bottom: 3%;
 }
-
+*/
 #consentPopup {
   position: fixed;
   bottom: 0;
@@ -225,7 +225,7 @@ body {
   left: 0;
   right: 0;
   top: 0;
-  z-index: 5;
+  z-index: 50;
   background-color: black;
   opacity: 0.7;
 }
