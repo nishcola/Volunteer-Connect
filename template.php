@@ -165,7 +165,7 @@
                 d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z" />
         </symbol>
     </svg>
-    <div class="container-fluid text-bg-dark fixed-top">
+    <div class="container-fluid text-bg-dark fixed-top border-bottom border-secondary">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-0">
             <a href="HelperAccountDashboard.php"
                 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
@@ -183,17 +183,21 @@
         </header>
     </div>
     <div class="container px-4 py-5 mt-5">
-        <h2 class="pb-2 border-bottom">Task Information:</h2>
-
+        <h2 class="pb-2">Task Information:</h2>
+        <hr>
         <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
             <div class="col d-flex flex-column align-items-start gap-2">
                 <h2 class="fw-bold text-body-emphasis" id="taskNameText">Task Title</h2>
                 <h4 class="text-body-secondary" id="usernameText">Paragraph of text beneath the heading to
                     explain the heading.</h4>
-                <p class="text-body-secondary" id="taskDescriptionText">Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Commodi in incidunt sit asperiores fugit. Maiores accusantium nostrum repudiandae
-                    possimus cupiditate ut perspiciatis rerum consequuntur, molestias laudantium optio quasi similique
-                    sunt numquam eligendi suscipit, sed quae vel? Sed iure ipsum a?</p>
+                <div class="text-wrap">
+                    <p class="text-body-secondary" id="taskDescriptionText">Lorem ipsum, dolor sit amet consectetur
+                        adipisicing elit. Commodi in incidunt sit asperiores fugit. Maiores accusantium nostrum
+                        repudiandae
+                        possimus cupiditate ut perspiciatis rerum consequuntur, molestias laudantium optio quasi
+                        similique
+                        sunt numquam eligendi suscipit, sed quae vel? Sed iure ipsum a?</p>
+                </div>
                 <button class="btn btn-primary btn-lg" id="signupButton" onclick="signup()">Sign Me Up!</button>
                 <button class="btn btn-primary btn-lg" id="markCompleteButton" onclick="markComplete()" title="">Mark As
                     Complete</button><br /><br />
@@ -274,6 +278,7 @@
                 </div>
             </div>
         </div>
+        <hr>
     </div>
     <div class="container">
         <table id="taskTable" class="table table-dark table-striped">
@@ -285,10 +290,12 @@
             </tbody>
         </table>
     </div>
-
-    <div id="emptyMessage" style="padding: 50px;">
-        <p id="emptyText">No volunteers have signed up for this opportunity yet.</p>
+    <div class="container">
+        <div id="emptyMessage" style="">
+            <p id="emptyText" class="h1 text-danger" style="margin-left: 10px;">No volunteers have signed up for this opportunity yet.</p>
+        </div>
     </div>
+
     <?php
     $sqlservername = "localhost";
     $sqlusername = "root";
