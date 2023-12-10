@@ -345,7 +345,7 @@
         </div>
         <hr>
     </div>
-    <div class="container">
+    <div class="container" style="padding-bottom: 50px;">
         <table id="taskTable" class="table table-dark table-striped">
             <tbody id="taskTableBody">
                 <tr>
