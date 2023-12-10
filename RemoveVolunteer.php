@@ -6,7 +6,7 @@
     <title>Removing Volunteer...</title>
 </head>
 <body>
-    
+    <p>Volunteer successfully removed!</p>
 </body>
 <?php
     $sqlservername = "localhost";
@@ -32,14 +32,18 @@
     $sql = "DELETE FROM taskuserxref WHERE userID = '$userId'";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Record deleted successfully";
+        echo "\";
       } else {
         echo "Error deleting record: " . $conn->error;
     }
 
     mysqli_close($conn);
 
-    echo"<script>window.location.replace('TaskPage.php');</script>";
+    echo "<script>
+        setTimeout(function(){
+            window.location.replace('TaskPage.php');
+        }, 2000);
+        </script>";
 ?>
 </html>
 

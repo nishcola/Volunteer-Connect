@@ -6,6 +6,7 @@
     <title>Marking task complete...</title>
 </head>
 <body>
+    <p>Task marked complete!</p>
 </body>
 <?php
     $sqlservername = "localhost";
@@ -66,13 +67,17 @@
     $status = 'Completed';
     $sql = "UPDATE taskrecords SET status = '$status' WHERE taskID = '$taskId'";
     if($conn->query($sql) === TRUE){
-        echo "Record updated successfully";
+        echo "";
     }else{
         echo "Error updating record: " . $conn->error;
     }
 
     mysqli_close($conn);
 
-    echo "<script>window.location.replace('AccountDashboardRedirect.php');</script>"
+    echo "<script>
+        setTimeout(function(){
+            window.location.replace('AccountDashboardRedirect.php');
+        }, 2000);
+        </script>";
 ?>
 </html>

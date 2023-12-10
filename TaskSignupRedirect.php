@@ -6,6 +6,7 @@
     <title>Signing you up...</title>
 </head>
 <body>
+    <p>Signup Successful!</p>
 </body>
 <?php
     $sqlservername = "localhost";
@@ -28,13 +29,17 @@
 
     $sql = "INSERT INTO taskuserxref (userID, taskID) VALUES ('$userId', '$taskId')";
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo "";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     mysqli_close($conn);
 
-    echo "<script>window.location.replace('TaskPage.php');</script>";
+    echo "<script>
+        setTimeout(function(){
+            window.location.replace('TaskPage.php');
+        }, 2000);
+        </script>";
 ?>
 </html>
