@@ -354,8 +354,6 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div class="container">
         <div id="emptyMessage" style="">
             <p id="emptyText" class="h1 text-danger" style="margin-left: 10px;">No volunteers have signed up for this opportunity yet.</p>
         </div>
