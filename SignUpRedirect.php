@@ -43,6 +43,8 @@
         mysqli_close($conn); 
 
         setcookie("accounttype", "$UaccountType", 0, "/");
+        setcookie("tableMode", "Upcoming", 0, "/");
+
         echo "<script> window.location.replace('AccountDashboardRedirect.php');</script>";
     ?>
 </body>

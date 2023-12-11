@@ -18,7 +18,7 @@
 <body class="text-bg-dark">
     <div class="container-fluid text-bg-dark fixed-top">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-0">
-            <a href="HelperAccountDashboard.php"
+            <a href="AccountDashboardRedirect.php"
                 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
                 <svg class="bi me-2" width="40" height="32">
                     <use xlink:href="#bootstrap" />
@@ -27,9 +27,7 @@
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="FindTask.php" class="nav-link active" aria-current="page">Find Task</a>
-                </li>
-                <li class="nav-item"><a href="#" class="nav-link" id="logoutLink">Log Out</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active" id="logoutLink">Log Out</a></li>
             </ul>
         </header>
     </div>

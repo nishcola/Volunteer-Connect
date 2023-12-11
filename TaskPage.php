@@ -226,7 +226,7 @@
     </svg>
     <div class="container-fluid text-bg-dark fixed-top border-bottom border-secondary">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-0">
-            <a href="HelperAccountDashboard.php"
+            <a href="AccountDashboardRedirect.php"
                 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
                 <svg class="bi me-2" width="40" height="32">
                     <use xlink:href="#bootstrap" />
