@@ -13,12 +13,13 @@ logoutLink.addEventListener('click', function(){
 });
 
 upcomingButton = document.getElementById('upcomingButton');
+completedButton = document.getElementById('completedButton');
+
 upcomingButton.addEventListener('click', function(){
     document.cookie = "tableMode=Upcoming; path=/;";
     location.reload();
 });
 
-completedButton = document.getElementById('completedButton');
 completedButton.addEventListener('click', function(){
     document.cookie = "tableMode=Completed; path=/;";
     location.reload();
