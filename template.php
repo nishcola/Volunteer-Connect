@@ -15,15 +15,23 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Dashboard</title>
     <script>
-    function redirect(taskId) {
-        document.cookie = `taskId = ${taskId}; path=/`;
-        window.location.replace('TaskPage.php');
-    }
+        function redirect(taskId) {
+            document.cookie = `taskId = ${taskId}; path=/`;
+            window.location.replace('TaskPage.php');
+        }
 
-    function setLink(cell, taskId) {
-        cell.innerHTML = `<button onclick='redirect(${taskId})' class='btn btn-primary'>Task Page</button>`;
-    }
-</script>
+        function setLink(cell, taskId) {
+            cell.innerHTML = `<button onclick='redirect(${taskId})' class='btn btn-primary'>Task Page</button>`;
+        }
+    </script>
+    <style>
+        #emptyMessage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 
 <body class="text-bg-dark">
@@ -52,15 +60,26 @@
                         echo $_COOKIE[$username]; ?>
                     </a></li>
                 <div class="vr"></div>
+                <li class="nav-item"><a href="FindTask.php" class="nav-link active" style="margin-left: 20px;"
+                        aria-current="page">Find Task</a>
                 <li class="nav-item"><a href="#" class="nav-link" id="logoutLink">Log Out</a></li>
-                <li class="nav-item"><a href="FindTask.php" class="nav-link active" aria-current="page">Find Task</a>
                 </li>
             </ul>
         </header>
     </div>
     <div class="container mt-5 pt-5">
-        <button class="btn btn-primary p-3" id="upcomingButton">Upcoming Tasks</button>
-        <button class="btn btn-primary p-3" style="margin-left: 5px;" id="completedButton">Recently Completed Tasks</button>
+        <div class="d-flex flex-row">
+            <div>
+                <button class="btn btn-primary p-3" id="upcomingButton">Upcoming Tasks</button>
+            </div>
+            <div>
+                <button class="btn btn-primary p-3" style="margin-left: 10px;" id="completedButton">Recently Completed
+                    Tasks</button>
+            </div>
+            <div class="ms-auto">
+                <a href="FindTask.php"><button class="btn btn-primary p-3" id="">Find Task</button></a>
+            </div>
+        </div>
         <table id="taskTable" class="table table-dark table-striped mt-3">
             <tbody id="taskTableBody">
                 <tr>
@@ -70,8 +89,8 @@
                 </tr>
             </tbody>
         </table>
-        <div class="empty-message mt-2" id="emptyMessage">
-            <p id="emptyText" class="h1 text-primary"></p>
+        <div class="empty-message p-5 border border-3" id="emptyMessage">
+            <p id="emptyText" class="h1"></p>
         </div>
     </div>
     <?php
@@ -160,6 +179,53 @@
                 
             </script>";
     ?>
+
+    <script>
+        var active = getCookie('tableMode');
+
+        if (active == 'Upcoming') {
+            var upcomingButton = document.getElementById("upcomingButton");
+            var completedButton = document.getElementById("completedButton");
+            upcomingButton.classList.add("active");
+            completedButton.classList.remove('active');
+        } else {
+            var upcomingButton = document.getElementById("upcomingButton");
+            var completedButton = document.getElementById("completedButton");
+            upcomingButton.classList.remove('active');
+            completedButton.classList.add('active');
+        }
+
+        var emptyText = document.getElementById('emptyText');
+        var emptyMessage = document.getElementById('emptyMessage');
+
+        if (emptyText.textContent == 'You have no upcoming tasks!') {
+            emptyMessage.classList.add("border-success");
+            emptyMessage.classList.remove("border-danger");
+            emptyText.classList.add("text-success");
+            emptyText.classList.remove("text-danger");
+        } else {
+            emptyMessage.classList.remove("border-success");
+            emptyMessage.classList.add("border-danger");
+            emptyText.classList.remove("text-success");
+            emptyText.classList.add("text-danger");
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = document.cookie;
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
 </body>
 
 </html>
