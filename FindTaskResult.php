@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<script>
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = document.cookie;
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,6 +119,11 @@
 
     $Uusername = $_COOKIE["username"];
 
+    $query = "SELECT userID FROM userrecords WHERE username = '$Uusername'";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($result);
+    $UuserId = $row[0];
+
     $KeyWords = strtolower($_POST['taskKeywords']);
     $ZipCode = $_POST['taskZipCode'];
 
@@ -113,13 +134,6 @@
         $searchCase = "case2";
     } else {
         $searchCase = "case3";
-    }
-
-    $tableMode = "";
-    if ($_COOKIE["tableMode"] == "Completed") {
-        $tableMode = 'Completed';
-    } else {
-        $tableMode = 'Upcoming';
     }
 
     if ($searchCase == "case1") {
@@ -142,37 +156,11 @@
             ";
     }
 
-    /*
-    if (!($ZipCode)){
-        $query = "
-        SELECT taskID, taskName, date, status 
-        FROM taskrecords
-        WHERE
-        (
-            (
-            taskName LIKE '%$KeyWords%'
-            OR taskDescription ILIKE '%$KeyWords%'
-            )
-            AND status LIKE '%Upcoming%'
-
-        )
-        ";
-    } else {
-        $query = "
-        SELECT taskID, taskName, date, status 
-        FROM taskrecords
-        WHERE(taskZipCode LIKE '%$KeyWords%' AND status ILIKE '%Upcoming%')
-        ";
-    }
-    */
     $result = mysqli_query($conn, $query);
     $rows = [];
     while ($row = $result->fetch_row()) {
         $rows[] = $row;
     }
-
-
-    mysqli_close($conn);
 
     for ($i = 0; $i < count($rows); $i++) {
         $currentRow = $rows[$i];
@@ -184,7 +172,11 @@
 
         $cell3HTML = "<button class='profile-navigation' onclick=`redirect('$taskId');`>Event Page</button>";
 
-        echo "<script>
+        $query = "SELECT * FROM taskuserxref WHERE userID = '$UuserId' AND taskID = '$taskId'";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+        if($row == null){
+            echo "<script>
                 var table = document.getElementById('taskTable');
                 if('$status' == 'Upcoming'){
                     row = table.insertRow(table.rows.length);
@@ -198,25 +190,11 @@
                     
                     setLink(cell3, '$taskId');
                 }
-                var emptyText = document.getElementById('emptyText');
-
-                /*
-                if(table.rows.length == 1){
-                    document.getElementById('taskTable').style.display='none'; 
-                    document.getElementById('emptyMessage').style.display='block';
-
-                    if('$tableMode' == 'Upcoming'){
-                        emptyText.textContent = 'You have no upcoming tasks!';
-                    }else{
-                        emptyText.textContent = 'You have no completed tasks.';
-                    }
-                }else{
-                    document.getElementById('taskTable').style.display='block'; 
-                    document.getElementById('emptyMessage').style.display='none';
-                }
-                */
             </script>";
+        }
     }
+
+    mysqli_close($conn);
 
     echo "<script>
             resultsLabel = document.getElementById('resultsLabel');
@@ -233,52 +211,6 @@
             resultsLabel.innerText = results;
         </script>";
     ?>
-    <script>
-        var active = getCookie('tableMode');
-
-        /*if (active == 'Upcoming') {
-            var upcomingButton = document.getElementById("upcomingButton");
-            var completedButton = document.getElementById("completedButton");
-            upcomingButton.classList.add("active");
-            completedButton.classList.remove('active');
-        } else {
-            var upcomingButton = document.getElementById("upcomingButton");
-            var completedButton = document.getElementById("completedButton");
-            upcomingButton.classList.remove('active');
-            completedButton.classList.add('active');
-        }
-
-        var emptyText = document.getElementById('emptyText');
-        var emptyMessage = document.getElementById('emptyMessage');
-
-        if (emptyText.textContent == 'You have no upcoming tasks!') {
-            emptyMessage.classList.add("border-success");
-            emptyMessage.classList.remove("border-danger");
-            emptyText.classList.add("text-success");
-            emptyText.classList.remove("text-danger");
-        } else {
-            emptyMessage.classList.remove("border-success");
-            emptyMessage.classList.add("border-danger");
-            emptyText.classList.remove("text-success");
-            emptyText.classList.add("text-danger");
-        }*/
-
-        function getCookie(cname) {
-            let name = cname + "=";
-            let decodedCookie = document.cookie;
-            let ca = decodedCookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-    </script>
 </body>
 
 </html>

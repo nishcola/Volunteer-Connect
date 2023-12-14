@@ -427,25 +427,7 @@
             usernameText.innerText = str9;
         </script>";
 
-    if ($status != "Upcoming") {
-        echo "<script>
-                var signupButton = document.getElementById('signupButton');
-                var markCompleteButton = document.getElementById('markCompleteButton');
-                signupButton.disabled=true;
-                markCompleteButton.disabled=true;
-                signupButton.title = 'This task is already complete!';
-                markCompleteButton.title = 'This task is already complete!';
-            </script>";
-    }
-
-    if($slotsFilled == $maxSlots){
-        echo "<script>
-                var signupButton = document.getElementById('signupButton');
-                signupButton.disabled=true;
-                signupButton.title = 'This task is already full!';
-            </script>";
-    }
-
+    
     $isCreator = false;
     if ($creatorUsername == $_COOKIE['username']) {
         $isCreator = true;
@@ -462,6 +444,25 @@
                 var markCompleteButton = document.getElementById('markCompleteButton');
                 //signupButton.disabled = false;
                 markCompleteButton.style.display = 'none';
+            </script>";
+    }
+
+    if($slotsFilled == $maxSlots){
+        echo "<script>
+                var signupButton = document.getElementById('signupButton');
+                signupButton.disabled = true;
+                signupButton.title = 'This task is already full!';
+            </script>";
+    }
+
+    if ($status != "Upcoming") {
+        echo "<script>
+                var signupButton = document.getElementById('signupButton');
+                var markCompleteButton = document.getElementById('markCompleteButton');
+                signupButton.disabled = true;
+                markCompleteButton.disabled = true;
+                signupButton.title = 'This task is already complete!';
+                markCompleteButton.title = 'This task is already complete!';
             </script>";
     }
 
