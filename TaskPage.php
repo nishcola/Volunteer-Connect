@@ -248,11 +248,11 @@
         </header>
     </div>
     <div class="container px-4 py-5 mt-5">
-        <h2 class="pb-2">Task Information:</h2>
+        <h2 class="pb-2">Event Information:</h2>
         <hr>
         <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
             <div class="col d-flex flex-column align-items-start gap-2">
-                <h2 class="fw-bold text-body-emphasis" id="taskNameText">Task Title</h2>
+                <h2 class="fw-bold text-body-emphasis" id="taskNameText">Event Title</h2>
                 <h4 class="text-body-secondary" id="usernameText">Paragraph of text beneath the heading to
                     explain the heading.</h4>
                 <div class="text-wrap">
@@ -277,7 +277,7 @@
                                 <use xlink:href="#calendar3" />
                             </svg>
                         </div>
-                        <h4 class="fw-semibold mb-0 text-body-emphasis">Task Date:</h4>
+                        <h4 class="fw-semibold mb-0 text-body-emphasis">Event Date:</h4>
                         <p class="text-body-secondary" id="dateText">Paragraph of text beneath the heading to explain
                             the heading.</p>
                     </div>
@@ -288,7 +288,7 @@
                                 <use xlink:href="#clock" />
                             </svg>
                         </div>
-                        <h4 class="fw-semibold mb-0 text-body-emphasis">Task Start Time:</h4>
+                        <h4 class="fw-semibold mb-0 text-body-emphasis">Event Start Time:</h4>
                         <p class="text-body-secondary" id="startTime">Paragraph of text beneath the heading to explain
                             the heading.</p>
                     </div>
@@ -300,7 +300,7 @@
                                 <use xlink:href="#endhourglass" />
                             </svg>
                         </div>
-                        <h4 class="fw-semibold mb-0 text-body-emphasis">Task End Time:</h4>
+                        <h4 class="fw-semibold mb-0 text-body-emphasis">Event End Time:</h4>
                         <p class="text-body-secondary" id="endTime">Paragraph of text beneath the heading to explain the
                             heading.</p>
                     </div>

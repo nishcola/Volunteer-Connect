@@ -29,7 +29,7 @@
         crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Find Task</title>
+    <title>Find Event</title>
     <script>
         function redirect(taskId) {
             document.cookie = `taskId = ${taskId}; path=/`;
@@ -37,7 +37,7 @@
         }
 
         function setLink(cell, taskId) {
-            cell.innerHTML = `<button onclick='redirect(${taskId})' class='btn btn-primary'>Task Page</button>`;
+            cell.innerHTML = `<button onclick='redirect(${taskId})' class='btn btn-primary'>Event Page</button>`;
         }
     </script>
 

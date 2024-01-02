@@ -21,7 +21,7 @@
         }
 
         function setLink(cell, taskId) {
-            cell.innerHTML = `<button onclick='redirect(${taskId})' class='btn btn-primary'>Task Page</button>`;
+            cell.innerHTML = `<button onclick='redirect(${taskId})' class='btn btn-primary'>Event Page</button>`;
         }
     </script>
     <style>
@@ -63,7 +63,7 @@
                         </a></li>
                     <div class="vr"></div>
                     <li class="nav-item"><a href="CreateTask.php" class="nav-link active" style="margin-left: 20px;"
-                            aria-current="page">Create Task</a>
+                            aria-current="page">Create Event</a>
                     <li class="nav-item"><a href="#" class="nav-link" id="logoutLink">Log Out</a></li>
                     </li>
                 </ul>
@@ -72,21 +72,21 @@
         <div class="container mt-5 pt-5">
             <div class="d-flex flex-row">
                 <div>
-                    <button class="btn btn-primary p-3" id="upcomingButton">Upcoming Created Tasks</button>
+                    <button class="btn btn-primary p-3" id="upcomingButton">Upcoming Created Events</button>
                 </div>
                 <div>
                     <button class="btn btn-primary p-3" style="margin-left: 10px;" id="completedButton">Previously
                         Completed
-                        Tasks</button>
+                        Events</button>
                 </div>
                 <div class="ms-auto">
-                    <a href="CreateTask.php"><button class="btn btn-primary p-3" id="">Create Task</button></a>
+                    <a href="CreateTask.php"><button class="btn btn-primary p-3" id="">Create Event</button></a>
                 </div>
             </div>
             <table id="taskTable" class="table table-dark table-striped mt-3">
                 <tbody id="taskTableBody">
                     <tr>
-                        <th class="col-10">Task Name</th>
+                        <th class="col-10">Event Name</th>
                         <th class="col-1">Date</th>
                         <th class="col-3">Page</th>
                     </tr>
@@ -167,9 +167,9 @@
                 document.getElementById('emptyMessage').style.display='block';
 
                 if('$tableMode' == 'Upcoming'){
-                    emptyText.textContent = 'You have no upcoming tasks!';
+                    emptyText.textContent = 'You have no upcoming events!';
                 }else{
-                    emptyText.textContent = 'You have no completed tasks.';
+                    emptyText.textContent = 'You have no completed events.';
                 }
             }else{
                 document.getElementById('taskTable').style.display='block'; 
@@ -195,7 +195,7 @@
             var emptyText = document.getElementById('emptyText');
             var emptyMessage = document.getElementById('emptyMessage');
 
-            if (emptyText.textContent == 'You have no upcoming tasks!') {
+            if (emptyText.textContent == 'You have no upcoming events!') {
                 emptyMessage.classList.add("border-success");
                 emptyMessage.classList.remove("border-danger");
                 emptyText.classList.add("text-success");

@@ -120,8 +120,8 @@
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="newSignup.php" class="nav-link active"
-                        aria-current="page">Sign Up</a></li>
+                <li class="nav-item"><a href="newSignup.php" class="nav-link active" aria-current="page">Sign Up</a>
+                </li>
                 <li class="nav-item"><a href="newSignin.php" class="nav-link">Log In</a></li>
             </ul>
         </header>
@@ -162,7 +162,7 @@
                         <div class="carousel-caption">
                             <h1>The world's next-generation volunteering platform.</h1>
                             <p>Find tasks that suit your interests.</p>
-                            <p><a class="btn btn-lg btn-primary" href="newSignup.php" >Get Started</a>
+                            <p><a class="btn btn-lg btn-primary" href="newSignup.php">Get Started</a>
                             </p>
                         </div>
                     </div>
@@ -307,10 +307,12 @@
                 <div class="col-lg-6">
                     <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Volunteer Connect</h1>
                     <h3 class="text-secondary">Your next volunteering platform.</h3>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam delectus quidem odio
-                        dolores eos optio dignissimos aut nobis blanditiis impedit fuga, commodi distinctio neque iure
-                        placeat error quibusdam eligendi. Sit atque tempora corrupti assumenda eaque ipsa, placeat
-                        beatae aut repudiandae.</p>
+                    <p class="lead">
+                        Whether you’re seeking volunteers for a community service project or if you just want to help,
+                        Volunteer Connect™ provides a safe, friendly platform for volunteers and organizations! Create a
+                        Helper account if you want to find opportunities to volunteer in your local community, or create
+                        a Seeker account if you are seeking volunteers for an event. With Volunteer Connect, helping has never been easier!
+                    </p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                         <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Sign Up</button>
                         <button type="button" class="btn btn-outline-secondary btn-lg px-4">Learn More</button>

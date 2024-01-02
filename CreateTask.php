@@ -12,7 +12,7 @@
         crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Create New Task</title>
+    <title>Create New Event</title>
 </head>
 
 <body class="text-bg-dark">
@@ -33,15 +33,15 @@
     </div>
     <div class="container mt-5">
         <div class="py-5 text-center">
-            <h2><u>Create Task</u></h2>
+            <h2><u>Create Event</u></h2>
         </div>
         <main class="d-flex justify-content-center">
             <div class="col-md-7 col-lg-8">
-                <h4 class="mb-3">Task Information:</h4>
+                <h4 class="mb-3">Event Information:</h4>
                 <form method="post" action="CreateTaskRedirect.php">
                     <div class="row g-3">
                         <div class="col-sm-6">
-                            <label for="taskName" class="form-label">Task Name</label>
+                            <label for="taskName" class="form-label">Event Name</label>
                             <input type="text" class="form-control" id="taskName" name="taskName"
                                 placeholder="Give your task a name..." value="" required>
                             <div class="invalid-feedback">
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="date" class="form-label">Task Date</label>
+                            <label for="date" class="form-label">Event Date</label>
                             <input type="date" class="form-control" name="date" id="date" placeholder="" value=""
                                 required>
                             <div class="invalid-feedback">
@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="col-12">
-                            <label for="taskDescription" class="form-label">Task Description</label>
+                            <label for="taskDescription" class="form-label">Event Description</label>
                             <div class="input-group has-validation">
                                 <textarea id="taskDescription" type="text" name="taskDescription" class="form-control"
                                     placeholder="Type a short description explaining your task..." required></textarea>
@@ -76,7 +76,7 @@
                             <input id="taskAddress" type="text" name="taskAddress" class="form-control"
                                 placeholder="1234 Main St" required>
                             <div class="invalid-feedback">
-                                Please enter your shipping address.
+                                Please enter your address.
                             </div>
                         </div>
 
@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     <hr class="my-4">
-                    <button class="w-100 btn btn-primary btn-lg" type="submit">Create Task</button>
+                    <button class="w-100 btn btn-primary btn-lg" type="submit">Create Event</button>
                 </form>
             </div>
     </div>
