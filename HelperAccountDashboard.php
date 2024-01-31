@@ -54,40 +54,46 @@
                             d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                     </svg>
                 </li>
-                <li class="nav-item"><a href="#" class="nav-link text-white"
-                        style="margin-right: 5px; padding-left: 5px;">
-                        <?php $username = 'username';
-                        echo $_COOKIE[$username]; ?>
-                    </a></li>
+                <div class="dropdown">
+                    <a href="#" class="nav-link text-white dropdown-toggle btn" data-bs-toggle="dropdown" role="button"
+                            style="margin-right: 5px; padding-left: 5px;">
+                            <?php $username = 'username';
+                            echo $_COOKIE[$username]; ?>
+                        </a>
+                    <ul class="dropdown-menu bg-dark" style="padding: 10px; border: 1px solid #404040;">
+                        <li><a href="#" class="dropdown-item text-bg-dark mb-2" id="logoutLink" style="color: white;">Log Out</a></li>
+                        <li><a href="#" class="dropdown-item" style="background-color: #dc3545; color: white; border-radius: 5px;">Delete Account</a></li>
+                    </ul>
+                </div>
                 <div class="vr"></div>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-white" style="margin-left: 16px; margin-right: 5px; padding-left: 5px;">Total hours: 
-                    <strong>
-                    <span class="text-success">
-                    <?php 
-                        $sqlservername = "localhost";
-                        $sqlusername = "root";
-                        $sqlpassword = "";
-                        $sqldbname = "disabilitymatch";
-                        $conn = mysqli_connect($sqlservername, $sqlusername, $sqlpassword, $sqldbname);
-                        if (!$conn) {
-                            die("Connection failed: " . mysqli_connect_error());
-                        }
-                        $Uusername = $_COOKIE["username"];
-                        $query = "SELECT totalHours FROM userrecords WHERE username = '$Uusername'";
-                        $result = mysqli_query($conn, $query);
-                        $row = mysqli_fetch_array($result);
-                        mysqli_close($conn);
-                        echo $row[0];
-                    ?>
-                    </span>
-                    </strong>
-                </a>
+                    <a href="#" class="nav-link text-white"
+                        style="margin-left: 16px; margin-right: 5px; padding-left: 5px;">Total hours:
+                        <strong>
+                            <span class="text-success">
+                                <?php
+                                $sqlservername = "localhost";
+                                $sqlusername = "root";
+                                $sqlpassword = "";
+                                $sqldbname = "disabilitymatch";
+                                $conn = mysqli_connect($sqlservername, $sqlusername, $sqlpassword, $sqldbname);
+                                if (!$conn) {
+                                    die("Connection failed: " . mysqli_connect_error());
+                                }
+                                $Uusername = $_COOKIE["username"];
+                                $query = "SELECT totalHours FROM userrecords WHERE username = '$Uusername'";
+                                $result = mysqli_query($conn, $query);
+                                $row = mysqli_fetch_array($result);
+                                mysqli_close($conn);
+                                echo $row[0];
+                                ?>
+                            </span>
+                        </strong>
+                    </a>
                 </li>
                 <div class="vr"></div>
                 <li class="nav-item"><a href="FindTask.php" class="nav-link active" style="margin-left: 20px;"
                         aria-current="page">Find Event</a>
-                <li class="nav-item"><a href="#" class="nav-link" id="logoutLink">Log Out</a></li>
                 </li>
             </ul>
         </header>
@@ -99,7 +105,7 @@
             </div>
             <div>
                 <button class="btn btn-primary p-3" style="margin-left: 10px;" id="completedButton">Recently Completed
-                Events</button>
+                    Events</button>
             </div>
             <div class="ms-auto">
                 <a href="FindTask.php"><button class="btn btn-primary p-3" id="">Find Event</button></a>
