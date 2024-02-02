@@ -35,6 +35,25 @@
 </head>
 
 <body class="text-bg-dark">
+    <div class="modal fade" id="accDeleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content text-bg-dark">
+                <div class="modal-header border-secondary">
+                    <h4 class="modal-title">Confirm Account Action:</h4>
+                </div>
+                <div class="modal-body pb-1">
+                    Are you sure you want to delete your account? <br /><strong><span class="text-danger">This action
+                            cannot be reverted.</span></strong>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Yes, I wish to delete my
+                        account.</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No, return.</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <div class="container-fluid text-bg-dark fixed-top border-bottom">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-0">
             <a href="AccountDashboardRedirect.php"
@@ -56,13 +75,16 @@
                 </li>
                 <div class="dropdown">
                     <a href="#" class="nav-link text-white dropdown-toggle btn" data-bs-toggle="dropdown" role="button"
-                            style="margin-right: 5px; padding-left: 5px;">
-                            <?php $username = 'username';
-                            echo $_COOKIE[$username]; ?>
-                        </a>
+                        style="margin-right: 5px; padding-left: 5px;">
+                        <?php $username = 'username';
+                        echo $_COOKIE[$username]; ?>
+                    </a>
                     <ul class="dropdown-menu bg-dark" style="padding: 10px; border: 1px solid #404040;">
-                        <li><a href="#" class="dropdown-item text-bg-dark mb-2" id="logoutLink" style="color: white;">Log Out</a></li>
-                        <li><a href="#" class="dropdown-item" style="background-color: #dc3545; color: white; border-radius: 5px;">Delete Account</a></li>
+                        <li><a href="#" class="dropdown-item text-bg-dark mb-2" id="logoutLink"
+                                style="color: white;">Log Out</a></li>
+                        <li><button class="dropdown-item"
+                                style="background-color: #dc3545; color: white; border-radius: 5px;"
+                                data-bs-toggle="modal" data-bs-target="#accDeleteModal">Delete Account</button></li>
                     </ul>
                 </div>
                 <div class="vr"></div>
