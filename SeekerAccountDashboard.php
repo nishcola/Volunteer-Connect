@@ -64,6 +64,8 @@
                     <div class="vr"></div>
                     <li class="nav-item"><a href="CreateTask.php" class="nav-link active" style="margin-left: 20px;"
                             aria-current="page">Create Event</a>
+                    <li class="nav-item"><a href="switchAccountType.php" class="nav-link" style="margin-left: 20px;"
+                            aria-current="page">Switch to a Helper Account</a>
                     <li class="nav-item"><a href="#" class="nav-link" id="logoutLink">Log Out</a></li>
                     </li>
                 </ul>

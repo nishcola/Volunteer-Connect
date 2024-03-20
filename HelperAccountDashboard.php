@@ -82,6 +82,7 @@
                     <ul class="dropdown-menu bg-dark" style="padding: 10px; border: 1px solid #404040;">
                         <li><a href="#" class="dropdown-item text-bg-dark mb-2" id="logoutLink"
                                 style="color: white;">Log Out</a></li>
+                        <li><a href="switchAccountType.php" class="dropdown-item text-bg-dark mb-2">Switch to a Seeker Account</a></li>
                         <li><button class="dropdown-item"
                                 style="background-color: #dc3545; color: white; border-radius: 5px;"
                                 data-bs-toggle="modal" data-bs-target="#accDeleteModal">Delete Account</button></li>

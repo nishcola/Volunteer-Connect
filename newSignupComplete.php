@@ -55,8 +55,7 @@
                         <div class="card-body p-4 p-md-5 bg-dark border: none;">
                             <h1 class="mb-4 pb-2 pb-md-0">Almost There!</h1>
                             <h5 class="pb-2 pb-md-0">We just need a little more information to get you started...</h5>
-                            <p class="mb-md-4"><small>Please note that account information is permanent. Make sure to
-                                    enter the proper info.</small></p>
+                            <p class="mb-md-4"><small>Note: you can always change your account type at a later date if needed.</small></p>
                             <form method="post" action="SignUpRedirect.php">
 
                                 <div class="row">
