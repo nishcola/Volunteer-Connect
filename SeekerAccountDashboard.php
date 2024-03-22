@@ -37,7 +37,67 @@
 <body>
 
     <body class="text-bg-dark">
-        <div class="container-fluid text-bg-dark fixed-top border-bottom">
+    <div class="modal fade" id="accDeleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content text-bg-dark">
+                <div class="modal-header border-secondary">
+                    <h4 class="modal-title">Confirm Account Action:</h4>
+                </div>
+                <div class="modal-body pb-1">
+                    Are you sure you want to delete your account? <br /><strong><span class="text-danger">This action
+                            cannot be reverted.</span></strong>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Yes, I wish to delete my
+                        account.</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No, return.</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-bg-dark fixed-top border-bottom">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-0">
+            <a href="AccountDashboardRedirect.php"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap" />
+                </svg>
+                <span class="fs-4 text-white"><strong>Volunteer Connect</strong></span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        style="margin-right: 5px; margin-top: 5px;" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                    </svg>
+                </li>
+                <div class="dropdown">
+                    <a href="#" class="nav-link text-white dropdown-toggle btn" data-bs-toggle="dropdown" role="button"
+                        style="margin-right: 5px; padding-left: 5px;">
+                        <?php $username = 'username';
+                        echo $_COOKIE[$username]; ?>
+                    </a>
+                    <ul class="dropdown-menu bg-dark" style="padding: 10px; border: 1px solid #404040;">
+                        <li><a href="#" class="dropdown-item text-bg-dark mb-2" id="logoutLink"
+                                style="color: white;">Log Out</a></li>
+                        <li><a href="switchAccountType.php" class="dropdown-item text-bg-dark mb-2">Switch to a Helper Account</a></li>
+                        <li><button class="dropdown-item"
+                                style="background-color: #dc3545; color: white; border-radius: 5px;"
+                                data-bs-toggle="modal" data-bs-target="#accDeleteModal">Delete Account</button></li>
+                    </ul>
+                </div>
+                <div class="vr"></div>
+                <li class="nav-item"><a href="CreateTask.php" class="nav-link active" style="margin-left: 20px;"
+                        aria-current="page">Create Event</a>
+                </li>
+            </ul>
+        </header>
+    </div>
+        <!--<div class="container-fluid text-bg-dark fixed-top border-bottom">
             <header class="d-flex flex-wrap justify-content-center py-3 mb-0">
                 <a href="AccountDashboardRedirect.php"
                     class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
@@ -58,8 +118,8 @@
                     </li>
                     <li class="nav-item"><a href="#" class="nav-link text-white"
                             style="margin-right: 5px; padding-left: 5px;">
-                            <?php $username = 'username';
-                            echo $_COOKIE[$username]; ?>
+                            <?php //$username = 'username';
+                            //echo $_COOKIE[$username]; ?>
                         </a></li>
                     <div class="vr"></div>
                     <li class="nav-item"><a href="CreateTask.php" class="nav-link active" style="margin-left: 20px;"
@@ -70,7 +130,7 @@
                     </li>
                 </ul>
             </header>
-        </div>
+        </div>-->
         <div class="container mt-5 pt-5">
             <div class="d-flex flex-row">
                 <div>

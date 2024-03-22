@@ -237,9 +237,9 @@
             <ul class="nav nav-pills">
                 <?php 
                     if($_COOKIE["accounttype"] == "Helper"){
-                        echo '<li class="nav-item"><a href="FindTask.php" class="nav-link active" aria-current="page">Find Task</a></li>';
+                        echo '<li class="nav-item"><a href="FindTask.php" class="nav-link active" aria-current="page">Find Event</a></li>';
                     }else{
-                        echo '<li class="nav-item"><a href="CreateTask.php" class="nav-link active" aria-current="page">Create Task</a></li>';
+                        echo '<li class="nav-item"><a href="CreateTask.php" class="nav-link active" aria-current="page">Create Event</a></li>';
                     }
                 ?>
                 <!--<li class="nav-item"><a href="FindTask.php" class="nav-link active" aria-current="page">Find Task</a></li>-->

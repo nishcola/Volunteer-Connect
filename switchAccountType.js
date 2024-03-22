@@ -21,4 +21,4 @@ setTimeout(function(){
     document.cookie = "taskId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     
     setTimeout(function(){window.location.replace('newSignin.php');}, 30);
-}, 2000);
+}, 2500);
